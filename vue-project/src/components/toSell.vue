@@ -21,43 +21,13 @@
           </el-form-item>
   
           <el-form-item>
-            <el-button type="primary" @click="submitForm">确定</el-button>
+            <el-button type="primary" @click="submitForm">卖出</el-button>
           </el-form-item>
         </el-form>
       </el-main>
     </el-card>
   </template>
   
-  <!-- <script>
-
-  export default {
-    data() {
-      return {
-        grams: '',
-        expectedAmount: '',
-        paymentMethod: 'wechat',
-      };
-    },
-    computed: {
-    formattedNumber() {
-      return (this.grams*556).toFixed(2);
-    }
-  },
-    methods: {
-
-      submitForm() {
-        this.$message({
-          message: '表单已提交！',
-          type: 'success',
-        });
-        // 处理表单提交逻辑
-        console.log(`克数: ${this.grams}`);
-        console.log(`预计到账金额: ${this.expectedAmount}`);
-        console.log(`到账方式: ${this.paymentMethod}`);
-      }
-    }
-  };
-  </script> -->
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue'

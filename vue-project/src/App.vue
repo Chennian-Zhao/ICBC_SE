@@ -1,21 +1,21 @@
 <template>
   <div class="background-page">
     <div id="app">
-      <toSell />
-       <!-- <toBuy /> -->
+      <!-- <toSell /> -->
+       <toBuy />
     </div>
   </div>
 </template>
 
 <script>
-// import toBuy from './components/toBuy.vue'
+import toBuy from './components/toBuy.vue'
 import toSell from './components/toSell.vue'
 
 export default {
   name: 'BackgroundPage',
 
   components: {
-    // toBuy,
+    toBuy,
     toSell
   }
 }

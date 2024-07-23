@@ -124,7 +124,9 @@
     <el-form @submit.prevent="submitForm" :model="form" label-width="130px">
 
       <el-form-item label="输入金额">
-        <el-input v-model="form.amount" type="number" @input="updateImage" ></el-input>
+        <!-- <el-input v-model="form.amount" type="number" @input="updateImage" ></el-input> -->
+        <el-input v-model.number="number" type="number" @input="updateImage" ></el-input>
+
       </el-form-item>
 
 
@@ -142,7 +144,11 @@
 
 
       <el-form-item v-model="form.amount">
-        <p>预计买入：{{formattedNumber}}克</p>
+        <p>预计买入：{{(tweened.number / 556.0).toFixed(6) }}克</p>
+        <!-- <p>预计买入：{{(number / 556.0).toFixed(6) }}克</p> -->
+
+        <!-- <p>预计买入：{{(form.amount / 556.0).toFixed(6) }}克</p> -->
+
         <!-- <img :src="imageSrc" alt="动态图片" /> -->
       </el-form-item>
 
@@ -153,20 +159,30 @@
       
 
       <el-form-item>
-        <el-button type="primary" @click="submitForm">提交</el-button>
+        <el-button type="primary" @click="submitForm">买入</el-button>
       </el-form-item>
     </el-form>
   </el-card>
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
+import { ref, computed,reactive, watch } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import type { Action } from 'element-plus'
-import { el } from 'element-plus/es/locale';
+import gsap from 'gsap'
+
+const number = ref(0)
+const tweened = reactive({
+  number: 0
+})
+watch(number, (n) => {
+  gsap.to(tweened, { duration: 0.5, number: Number(n) || 0 })
+})
+
+
 
 const form = ref({
-  amount: 0,
+  amount: number,
   expectedPurchase: '',
   paymentMethod: 'wechat',
   participateInBlindBox: false,
@@ -174,16 +190,11 @@ const form = ref({
 
 const imageSrc = ref('./src/assets/image1.png')
 
-// const formattedNumber = computed(() => {
-//   if(form.value.amount==''){
-//     return 0
-//   }else{ 
-//     return parseFloat(form.value.amount) / 556.0).toFixed(6) }  
-
-  const formattedNumber = computed(() => (  (form.value.amount / 556.0).toFixed(6) ))
+  // const formattedNumber = computed(() => (  tweened.number / 556.0))
 
 const showInfo = () => {
-  ElMessageBox.alert('参加盲盒活动可以获得惊喜礼品！', '盲盒活动详情', {
+  ElMessageBox.alert('参加盲盒活动可以获得惊喜礼品！活动时间：xxxx活动内容：xxxx金豆子皮肤:xxxx参与方式：xxxxx注意事项：xxx',
+     '盲盒活动详情', {
     confirmButtonText: 'OK',
     callback: (action: Action) => {
       ElMessage({
@@ -195,10 +206,12 @@ const showInfo = () => {
 }
 
 const updateImage = () => {
-  const amount = form.value.amount / 556.0
-  if (amount <1) {
+  const amount = form.value.amount/556
+  // const amount = tweened.number / 556.0
+
+  if (amount <1.0) {
     imageSrc.value = './src/assets/image1.png'
-  } else if (amount < 10) {
+  } else if (amount < 10.0) {
     imageSrc.value = './src/assets/image2.png'
   } else {
     imageSrc.value = './src/assets/image3.png'
