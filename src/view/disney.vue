@@ -90,7 +90,6 @@ export default {
             options: [
                 { text: '三丽鸥', value: 'home' },
                 { text: '迪士尼', value: 'Disney' },
-                { text: '露比', value: 'loopy' },
             ],
             images: [
                 { src: '/src/assets/images/Disney/米奇.png', alt: 'Image 1', caption: '米奇' },
@@ -134,9 +133,7 @@ export default {
                 case 'Disney':
                     this.$router.push('/disney');
                     break;
-                case 'loopy':
-                    this.$router.push('/loopy');
-                    break;
+        
             }
         },
         showCardDialog() {
