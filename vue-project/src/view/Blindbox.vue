@@ -123,7 +123,7 @@ export default {
         onMenuClick(menu) {
             switch (menu) {
                 case 'home':
-                    this.$router.push('/');
+                    this.$router.push('/blindbox');
                     break;
                 case 'Disney':
                     this.$router.push('/disney');

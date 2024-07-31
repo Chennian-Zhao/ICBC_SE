@@ -1,31 +1,27 @@
 //创建路由实例
 import { createRouter, createWebHashHistory } from "vue-router"
-import Index from '../view/index.vue'
-import Lucky from '../view/Lucky.vue'
-import lucky1 from "../view/lucky1.vue"
-import Disney from "../view/disney.vue"
+import Blindbox from '../view/Blindbox.vue'
+import Lucky2 from '../view/Lucky2.vue'
+import Lucky1 from '../view/lucky1.vue'
+import Disney from '../view/disney.vue'
 
 
 
 //1.创建路由规则
 
 const routes = [{
-    path: '/index',
-    name: 'index',
-    component: Index
+    path: '/blindbox',
+    name: 'blindbox',
+    component: Blindbox
 },{
-    path: '/',
-    name: 'index',
-    component: Index
-},{
-    path: '/lucky',
-    name: 'lucky',
-    component: Lucky
+    path: '/Lucky2',
+    name: 'Lucky2',
+    component: Lucky2
 },
 {
     path: '/lucky1',
     name: 'lucky1',
-    component: lucky1
+    component: Lucky1
 },
 {
     path: '/disney',

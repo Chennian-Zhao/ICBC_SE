@@ -114,7 +114,7 @@ export default {
     },
     methods: {
         goToLuckyPage() {
-            this.$router.push('/lucky'); // 使用 $router.push 方法跳转到 'lucky' 页面
+            this.$router.push('/lucky2'); // 使用 $router.push 方法跳转到 'lucky' 页面
         },
         onClickLeft() {
             this.$router.go(-1);
@@ -127,9 +127,11 @@ export default {
         },
         onMenuClick(menu) {
             switch (menu) {
+
                 case 'home':
-                    this.$router.push('/');
+                    this.$router.push('/blindbox');
                     break;
+
                 case 'Disney':
                     this.$router.push('/disney');
                     break;

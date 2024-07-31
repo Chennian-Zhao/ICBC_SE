@@ -71,11 +71,9 @@ export default {
         onClickLeft() {
             this.$router.go(-1); // 返回上一页
         },
-        goToLuckyPage() {
-            this.$router.push('/lucky2'); // 跳转到幸运页
-        },
+       
         goToBlindboxPage() {
-            this.$router.push('/'); // 跳转到盲盒页
+            this.$router.push('/disney'); // 跳转到盲盒页
         }
     }
 };
