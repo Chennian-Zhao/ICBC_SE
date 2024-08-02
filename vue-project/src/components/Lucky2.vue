@@ -93,7 +93,7 @@ export default {
 .background-container {
   width: 100%;
   height: 100vh;
-  background-image: url('../assets/images/三丽鸥2.jpg');
+  background-image: url('../assets/images/迪士尼2.jpg');
   background-size: cover;
   background-position: center;
   display: flex;

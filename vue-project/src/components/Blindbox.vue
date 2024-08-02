@@ -138,15 +138,7 @@ export default {
       this.tipDialogVisible = true; // 显示提示卡弹窗
     },
     onHelpClick() {
-
-      // Trigger the flash effect
-      this.isFlashing = true;
-
-      // Reset the flashing effect after the animation duration
-      setTimeout(() => {
-        this.isFlashing = false;
-      }, 500); // Duration of the flash animation
-
+      this.$router.push('/disney');
     }
   }
 };
@@ -265,7 +257,7 @@ export default {
 .background-container {
   width: 100%;
   height: 100vh;
-  background-image: url('../assets/images/三丽鸥.jpg');
+  background-image: url('../assets/images/三丽鸥1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -363,7 +355,7 @@ export default {
 }
 
 .dialog-content {
-  background: url('../assets/images/三丽鸥2.jpg') no-repeat center center;
+  background: url('../assets/images/dialog.jpg') no-repeat center center;
   background-size: cover;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
