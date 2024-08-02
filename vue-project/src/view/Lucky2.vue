@@ -33,6 +33,9 @@
                         @click="goToBlindboxPage" />
                     <br>
                     <br>
+                    <br>
+                    <br>
+                    <br>
                     <van-action-bar-button class="action-bar-button" plain type="primary" text="开心收下"
                         @click="goToLuckyPage" />
                 </div>
@@ -84,7 +87,7 @@ export default {
 .background-container {
     width: 100%;
     height: 100vh;
-    background-image: url('../assets/images/三丽鸥2.jpg');
+    background-image: url('../assets/images/迪士尼2.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -245,8 +248,8 @@ export default {
 .action-bar-button {
     width: calc(90% - 40px);
     background-color: transparent;
-    color: #2b0000;
-    border: 1px solid #1f0000;
+    color: #800000;
+    border: 1px solid #800000;
     position: absolute;
     border-radius: 20px;
     text-align: center;
@@ -268,7 +271,7 @@ export default {
     border: none;
     padding: 0;
     margin: 0;
-    color: inherit;
+    color: #800000;
     cursor: pointer;
     font-size: 15px;
 }

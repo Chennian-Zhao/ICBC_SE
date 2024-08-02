@@ -33,6 +33,9 @@
                         @click="goToBlindboxPage" />
                     <br>
                     <br>
+                    <br>
+                    <br>
+                    <br>
                     <van-action-bar-button class="action-bar-button" plain type="primary" text="开心收下"
                         @click="goToLuckyPage" />
                 </div>
@@ -242,8 +245,8 @@ export default {
 .action-bar-button {
     width: calc(90% - 40px);
     background-color: transparent;
-    color: #2b0000;
-    border: 1px solid #1f0000;
+    color: #dddddd;
+    border: 1px solid #dcdcdc;
     position: absolute;
     border-radius: 20px;
     text-align: center;
@@ -265,7 +268,7 @@ export default {
     border: none;
     padding: 0;
     margin: 0;
-    color: inherit;
+    color: #ffffff;
     cursor: pointer;
     font-size: 15px;
 }
