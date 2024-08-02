@@ -34,8 +34,6 @@
           <br>
           <br>
           <br>
-          <br>
-          <br>
           <van-action-bar-button class="action-bar-button" plain type="primary" text="开心收下" @click="goToLuckyPage" />
         </div>
       </div>
@@ -51,15 +49,15 @@ export default {
     return {
       opened: false, // 是否打开盲盒
       showContent: false, // 是否显示盲盒内容
-      randomImage: {src: '/src/assets/images/三丽鸥/HelloKitty.png'}, // 默认随机图片
+      randomImage: { src: '/src/assets/images/Disney/米奇.png' }, // 默认随机图片
       images: [ // 可供随机选择的图片数组
-        {src: '/src/assets/images/Disney/米奇.png'},
-        {src: '/src/assets/images/Disney/草莓熊.png'},
-        {src: '/src/assets/images/Disney/三眼仔.png'},
-        {src: '/src/assets/images/Disney/玛丽猫.png'},
-        {src: '/src/assets/images/Disney/火腿猪.png'},
-        {src: '/src/assets/images/Disney/维尼.png'},
-        {src: '/src/assets/images/Disney/雪宝.png'},
+        { src: '/src/assets/images/Disney/米奇.png' },
+        { src: '/src/assets/images/Disney/草莓熊.png' },
+        { src: '/src/assets/images/Disney/三眼仔.png' },
+        { src: '/src/assets/images/Disney/玛丽猫.png' },
+        { src: '/src/assets/images/Disney/火腿猪.png' },
+        { src: '/src/assets/images/Disney/维尼.png' },
+        { src: '/src/assets/images/Disney/雪宝.png' },
       ],
     };
   },
@@ -75,7 +73,6 @@ export default {
     onClickLeft() {
       this.$router.go(-1); // 返回上一页
     },
-
     goToBlindboxPage() {
       this.$router.push('/disney'); // 跳转到盲盒页
     },
@@ -94,7 +91,7 @@ export default {
 /* 背景容器样式 */
 .background-container {
   width: 100%;
-  height: 100vh;
+  height: 95vh;
   background-image: url('../assets/images/迪士尼2.jpg');
   background-size: cover;
   background-position: center;
@@ -221,22 +218,21 @@ export default {
 
 /* 抽中奖品图片样式 */
 .explosion-image {
-  max-width: 200px;
-  max-height: 200px;
-  margin-bottom: 20px;
+  max-width: 300px;
+  max-height: 300px;
+  margin-top: 70px;
 }
 
 /* 盲盒容器样式 */
 .blind-box-container {
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 80px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 300px;
-  height: 50px;
+  height: 60px;
   border-radius: 20px;
   background-image: linear-gradient(270deg, rgba(227, 173, 97, 0.00) 0%, #a15e00 50%, rgba(255, 223, 179, 0.00) 100%);
 }
@@ -256,8 +252,8 @@ export default {
 .action-bar-button {
   width: calc(90% - 40px);
   background-color: transparent;
-  color: #2b0000;
-  border: 1px solid #1f0000;
+  color: #ebebeb;
+  border: 1px solid #ebebeb;
   position: absolute;
   border-radius: 20px;
   text-align: center;
@@ -270,7 +266,8 @@ export default {
   align-items: center;
   border-radius: 20px;
   background-color: transparent;
-  margin-top: 100px;
+  margin-top: 60px;
+  margin-bottom: 0px;
 }
 
 /* 无边框按钮样式 */
@@ -279,7 +276,7 @@ export default {
   border: none;
   padding: 0;
   margin: 0;
-  color: inherit;
+  color: #ebebeb;
   cursor: pointer;
   font-size: 15px;
 }
