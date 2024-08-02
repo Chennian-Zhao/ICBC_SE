@@ -10,7 +10,7 @@
         <div class="block-content">
           <el-form :model="form" ref="form" label-width="120px">
             <el-form-item label="户名" prop="name" class="form-item">
-              
+
               <el-input v-model="form.name" placeholder="请输入（支持首字母检索）"></el-input>
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
@@ -64,6 +64,8 @@
           </el-form>
         </div>
       </div>
+    
+      <!-- 确认按钮和对话框 -->
       <el-button type="primary" class="confirm-button" @click="showDialog">确定</el-button>
       <el-dialog :visible.sync="dialogVisible" width="30%">
         <div class="dialog-content">
@@ -99,7 +101,9 @@ export default {
       this.$router.push({ name: 'Transfer' });
     },
     showDialog() {
+      console.log('确认按钮被点击');
       this.dialogVisible = true;
+
     },
     goHome() {
       this.$router.push({ name: 'Home' });
