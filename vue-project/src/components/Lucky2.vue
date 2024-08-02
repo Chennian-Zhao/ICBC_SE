@@ -4,7 +4,7 @@
     <van-nav-bar title="小金豆盲盒">
       <template #left>
         <!-- 左侧返回按钮 -->
-        <van-icon name="arrow-left" color="#ff0000" @click="onClickLeft"/>
+        <van-icon name="arrow-left" color="#ff0000" @click="onClickLeft" />
       </template>
     </van-nav-bar>
   </div>
@@ -29,12 +29,14 @@
         </div>
         <img :src="randomImage.src" alt="Explosion Image" class="explosion-image">
         <div class="button-container">
-          <van-action-bar-button class="no-border-button" type="primary" text="< 继续抽奖"
-                                 @click="goToBlindboxPage"/>
+          <van-action-bar-button class="no-border-button" type="primary" text="< 继续抽奖" @click="goToBlindboxPage" />
           <br>
           <br>
-          <van-action-bar-button class="action-bar-button" plain type="primary" text="开心收下"
-                                 @click="goToLuckyPage"/>
+          <br>
+          <br>
+          <br>
+          <br>
+          <van-action-bar-button class="action-bar-button" plain type="primary" text="开心收下" @click="goToLuckyPage" />
         </div>
       </div>
     </div>
@@ -93,7 +95,7 @@ export default {
 .background-container {
   width: 100%;
   height: 100vh;
-  background-image: url('../assets/images/三丽鸥2.jpg');
+  background-image: url('../assets/images/迪士尼2.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -227,7 +229,7 @@ export default {
 /* 盲盒容器样式 */
 .blind-box-container {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 80px;
   display: flex;
   flex-direction: column;
@@ -236,7 +238,7 @@ export default {
   width: 300px;
   height: 50px;
   border-radius: 20px;
-  background-image: linear-gradient(270deg, rgba(227, 173, 97, 0.00) 0%, #fcd8a5 50%, rgba(255, 223, 179, 0.00) 100%);
+  background-image: linear-gradient(270deg, rgba(227, 173, 97, 0.00) 0%, #a15e00 50%, rgba(255, 223, 179, 0.00) 100%);
 }
 
 /* 盲盒文本样式 */
