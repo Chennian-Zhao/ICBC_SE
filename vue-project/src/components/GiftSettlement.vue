@@ -10,7 +10,6 @@
         <div class="block-content">
           <el-form :model="form" ref="form" label-width="120px">
             <el-form-item label="户名" prop="name" class="form-item">
-
               <el-input v-model="form.name" placeholder="请输入（支持首字母检索）"></el-input>
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
@@ -64,21 +63,32 @@
           </el-form>
         </div>
       </div>
-    
-      <!-- 确认按钮和对话框 -->
-      <el-button type="primary" class="confirm-button" @click="showDialog">确定</el-button>
-      <el-dialog :visible.sync="dialogVisible" width="30%">
-        <div class="dialog-content">
-          <img src="../assets/thank_you.png" class="dialog-image">
-          <div class="dialog-text">您的心意已送达</div>
-          <el-button type="primary" @click="goHome">返回首页</el-button>
-        </div>
-      </el-dialog>
+      <div class="confirm">
+          <button class="block-header yellow-bg" @click="showAlert">确认</button>
+          <div class="block-content"></div>
+      </div>
+      <div v-if="showDialog" class="custom-dialog">
+          <div class="custom-dialog-content">
+            <h2 class="custom-dialog-title">您的心意已送出</h2>
+            <img src="../assets/thank_you.png" alt="Image" class="custom-dialog-image">
+            <div class="dialog-footer">
+              <button @click="goHome">返回主页</button>
+            </div>
+          </div>
+      </div>
+      
+      
+  
+
     </el-main>
   </el-container>
 </template>
 
 <script>
+
+
+
+
 export default {
   name: 'GiftSettlement',
   data() {
@@ -93,17 +103,16 @@ export default {
         message: '',
         smsNotification: false
       },
-      dialogVisible: false
+      showDialog: false
     };
   },
   methods: {
+    showAlert() {
+      console.log('确认按钮已点击');
+      this.showDialog = true;
+    },
     goBack() {
       this.$router.push({ name: 'Transfer' });
-    },
-    showDialog() {
-      console.log('确认按钮被点击');
-      this.dialogVisible = true;
-
     },
     goHome() {
       this.$router.push({ name: 'Home' });
@@ -199,36 +208,53 @@ export default {
   padding: 10px; /* 内边距为10px */
 }
 
-/* 确认按钮样式 */
-.confirm-button {
-  width: 100%; /* 宽度为100% */
-  background-color: #fac248; /* 背景颜色为黄色 */
-  color: black; /* 文字颜色为黑色 */
-  font-weight: bold; /* 字体加粗 */
-}
+  /* 分隔线样式 */
+  .divider {
+    border-top: 1px solid #d3d3d3; /* 顶部边框为1px的灰色实线 */
+    margin: 10px 0; /* 上下外边距为10px */
+  }
+  
+  /* 确认按钮 */
+  
+  .custom-dialog {
+    position: fixed; /* 固定定位，使弹窗相对于视口固定 */
+    top: 50%; /* 弹窗垂直居中 */
+    left: 50%; /* 弹窗水平居中 */
+    transform: translate(-50%, -50%); /* 通过平移使弹窗完全居中 */
+    background-color: white; /* 弹窗背景颜色为白色 */
+    border: 2px solid gold; /* 弹窗边框为2px的金色实线 */
+    border-radius: 15px; /* 弹窗边框圆角半径为15px */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 弹窗阴影效果 */
+    z-index: 1000; /* 弹窗的堆叠顺序，确保其在最上层 */
+    padding: 20px; /* 弹窗内边距为20px */
+  }
+  
+  .custom-dialog-content {
+    text-align: center; /* 弹窗内容居中对齐 */
+  }
+  
+  .custom-dialog-title {
+    margin-bottom: 20px; /* 标题底部外边距为20px */
+  }
+  
+  .custom-dialog-image {
+    width: 100px; /* 图片宽度为100px */
+    height: auto; /* 图片高度自动调整 */
+    margin-bottom: 20px; /* 图片底部外边距为20px */
+  }
+  
+  .dialog-footer button {
+    background-color: gold; /* 按钮背景颜色为金色 */
+    border: none; /* 按钮无边框 */
+    padding: 10px 20px; /* 按钮内边距为10px 20px */
+    border-radius: 5px; /* 按钮边框圆角半径为5px */
+    cursor: pointer; /* 鼠标悬停时显示为指针 */
+  }
+  
+  .dialog-footer button:hover {
+    background-color: darkgoldenrod; /* 按钮悬停时背景颜色为深金色 */
+  }
 
-/* 对话框内容样式 */
-.dialog-content {
-  text-align: center; /* 文本居中对齐 */
-}
 
-/* 对话框图片样式 */
-.dialog-image {
-  width: 100px; /* 宽度为100px */
-  height: 100px; /* 高度为100px */
-  margin-bottom: 20px; /* 底部外边距为20px */
-}
 
-/* 对话框文本样式 */
-.dialog-text {
-  font-family: 'Cursive', sans-serif; /* 字体为Cursive和sans-serif */
-  font-size: 24px; /* 字体大小为24px */
-  margin-bottom: 20px; /* 底部外边距为20px */
-}
-
-/* 分隔线样式 */
-.divider {
-  border-top: 1px solid #d3d3d3; /* 顶部边框为1px的灰色实线 */
-  margin: 10px 0; /* 上下外边距为10px */
-}
 </style>
