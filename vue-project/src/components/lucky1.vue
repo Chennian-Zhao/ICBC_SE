@@ -34,8 +34,6 @@
           <br>
           <br>
           <br>
-          <br>
-          <br>
           <van-action-bar-button class="action-bar-button" plain type="primary" text="开心收下" @click="goToLuckyPage" />
         </div>
       </div>
@@ -51,18 +49,17 @@ export default {
     return {
       opened: false, // 是否打开盲盒
       showContent: false, // 是否显示盲盒内容
-      randomImage: {src: '/src/assets/images/三丽鸥/HelloKitty.png'}, // 默认随机图片
+      randomImage: { src: '/src/assets/images/三丽鸥/HelloKitty.png' }, // 默认随机图片
       images: [ // 可供随机选择的图片数组
-        {src: '/src/assets/images/三丽鸥/HelloKitty.png'},
-        {src: '/src/assets/images/三丽鸥/帕恰狗.png'},
-        {src: '/src/assets/images/三丽鸥/美乐蒂.png'},
+        { src: '/src/assets/images/三丽鸥/HelloKitty.png' },
+        { src: '/src/assets/images/三丽鸥/帕恰狗.png' },
+        { src: '/src/assets/images/三丽鸥/美乐蒂.png' },
       ],
     };
   },
   methods: {
     openBox() {
       this.opened = true; // 标记盲盒已打开
-
     },
     handleAnimationEnd() {
       this.showContent = true; // 动画结束后显示内容
@@ -72,11 +69,9 @@ export default {
     onClickLeft() {
       this.$router.go(-1); // 返回上一页
     },
-
     goToBlindboxPage() {
       this.$router.push('/blindbox'); // 跳转到盲盒页
     },
-
     goToLuckyPage() {
       // 添加金豆皮肤到换装扮界面
       if (!state.goldBeanSkins.includes(this.randomImage.src)) {
@@ -86,15 +81,13 @@ export default {
     }
   }
 };
-
-
 </script>
 
 <style scoped>
 /* 背景容器样式 */
 .background-container {
   width: 100%;
-  height: 93vh;
+  height: 95vh;
   background-image: url('../assets/images/三丽鸥2.jpg');
   background-size: cover;
   background-position: center;
@@ -221,16 +214,15 @@ export default {
 
 /* 抽中奖品图片样式 */
 .explosion-image {
-  max-width: 200px;
-  max-height: 200px;
-  margin-bottom: 20px;
+  max-width: 300px;
+  max-height: 300px;
+  margin-top: 70px;
 }
 
 /* 盲盒容器样式 */
 .blind-box-container {
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 80px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -270,7 +262,9 @@ export default {
   align-items: center;
   border-radius: 20px;
   background-color: transparent;
-  margin-top: 100px;
+  margin-top: 60px;
+  margin-bottom: 0px;
+  
 }
 
 /* 无边框按钮样式 */
