@@ -61,8 +61,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  /* justify-content: center;
+  padding: 20px; */
   position: relative;
   background-color: #fbf1d0; /* 设置 transfer-page 的背景颜色 */
   width: 100vw; /* 确保背景覆盖整个视口宽度 */
@@ -85,7 +85,7 @@ export default {
   color: gold; /* 设置字体颜色为金黄色 */
   font-weight: bold; /* 设置字体为粗体 */
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* 设置黑色边框 */
-  margin-top: 60px; /* 往下一点 */
+  margin-top: 6px; /* 往下一点 */
   font-size: 24px; /* 设置字体大小 */
 }
 
@@ -94,7 +94,7 @@ export default {
   left: -15px; /* 调整左边距，使图片更靠左 */
   width: 50px;
   height: 50px;
-  margin-top: 40px; /* 往下一点 */
+  margin-top: -7px; /* 往下一点 */
   cursor: pointer;
   transform: rotate(180deg);
 }
