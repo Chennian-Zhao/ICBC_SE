@@ -274,6 +274,7 @@ export default {
     height: 200px;
     border: 5px solid#CAAD75;
     border-radius: 20px;
+    margin-bottom: 30px;
     background-color: rgb(252, 249, 245, 0.6);
 }
 
@@ -375,7 +376,7 @@ export default {
 
 .help-button-container {
     position: absolute;
-    top: 125px;
+    top: 140px;
     /* Adjust this value as needed */
     right: 17px;
     /* Adjust this value as needed */
