@@ -10,6 +10,7 @@
         <div class="block-content">
           <el-form :model="form" ref="form" label-width="120px">
             <el-form-item label="户名" prop="name" class="form-item">
+              
               <el-input v-model="form.name" placeholder="请输入（支持首字母检索）"></el-input>
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
