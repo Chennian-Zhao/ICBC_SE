@@ -69,8 +69,7 @@
       </div>
       <div v-if="showDialog" class="custom-dialog">
           <div class="custom-dialog-content">
-            <h2 class="custom-dialog-title">您的心意已送出</h2>
-            <img src="../assets/thank_you.png" alt="Image" class="custom-dialog-image">
+            
             <div class="dialog-footer">
               <button @click="goHome">返回主页</button>
             </div>
@@ -216,43 +215,53 @@ export default {
   
   /* 确认按钮 */
   
+  .confirm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
   .custom-dialog {
     position: fixed; /* 固定定位，使弹窗相对于视口固定 */
     top: 50%; /* 弹窗垂直居中 */
     left: 50%; /* 弹窗水平居中 */
+    
     transform: translate(-50%, -50%); /* 通过平移使弹窗完全居中 */
-    background-color: white; /* 弹窗背景颜色为白色 */
-    border: 2px solid gold; /* 弹窗边框为2px的金色实线 */
+    background: url('../assets/thank_you.png') no-repeat center center; /* 弹窗背景图片 */
+    background-size: cover; /* 背景图片自适应 */
+    /* background-color: white; 弹窗背景颜色为白色 */
+    border: 5px solid gold; /* 弹窗边框为2px的金色实线 */
     border-radius: 15px; /* 弹窗边框圆角半径为15px */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 弹窗阴影效果 */
     z-index: 1000; /* 弹窗的堆叠顺序，确保其在最上层 */
     padding: 20px; /* 弹窗内边距为20px */
+    width: 300px; /* 增加弹窗宽度 */
+    height: 500px; /* 增加弹窗高度 */
   }
   
   .custom-dialog-content {
     text-align: center; /* 弹窗内容居中对齐 */
   }
   
-  .custom-dialog-title {
-    margin-bottom: 20px; /* 标题底部外边距为20px */
-  }
   
-  .custom-dialog-image {
-    width: 100px; /* 图片宽度为100px */
-    height: auto; /* 图片高度自动调整 */
-    margin-bottom: 20px; /* 图片底部外边距为20px */
-  }
+  .dialog-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 450px; /* 将元素推到容器底部 */
+
   
+}
+
   .dialog-footer button {
     background-color: gold; /* 按钮背景颜色为金色 */
     border: none; /* 按钮无边框 */
-    padding: 10px 20px; /* 按钮内边距为10px 20px */
+    padding: 15px 30px; /* 按钮内边距为10px 20px */
     border-radius: 5px; /* 按钮边框圆角半径为5px */
     cursor: pointer; /* 鼠标悬停时显示为指针 */
   }
   
   .dialog-footer button:hover {
-    background-color: darkgoldenrod; /* 按钮悬停时背景颜色为深金色 */
+    background-color: rgb(224, 9, 106); /* 按钮悬停时背景颜色为深金色 */
   }
 
 
