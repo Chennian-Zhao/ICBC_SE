@@ -237,6 +237,7 @@ export default {
     padding: 20px; /* 弹窗内边距为20px */
     width: 300px; /* 增加弹窗宽度 */
     height: 500px; /* 增加弹窗高度 */
+
   }
   
   .custom-dialog-content {
@@ -245,10 +246,10 @@ export default {
   
   
   .dialog-footer {
+
   display: flex;
   justify-content: center;
   margin-top: 450px; /* 将元素推到容器底部 */
-  margin-left: auto;
 
   
 }
