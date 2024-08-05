@@ -17,8 +17,8 @@
 
         </div>
 
-        <van-notice-bar left-icon="volume-o" text="🎉收集乐趣，无尽惊喜，尽在迪士尼盲盒！🎉" />
-
+        <van-notice-bar left-icon="volume-o" text="🎉收集乐趣，无尽惊喜，尽在迪士尼盲盒！🎉"
+            :style="{ backgroundColor: '#f8f8f8', color: '#333', fontSize: '20px', height: '50px' }" />
         <div class="center-container">
             <div class="help-button-container">
                 <van-icon class="help-button" size="20px" @click="onHelpClick" name="replay" />
@@ -205,8 +205,8 @@ export default {
 
 .carousel-container {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border-radius: 50px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -234,14 +234,14 @@ export default {
 
 .carousel-caption {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(175, 93, 0, 0.5);
+    background: rgba(85, 45, 0, 0.5);
     color: white;
     padding: 0px 20px;
     border-radius: 20px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .center-container {
@@ -270,8 +270,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border: 5px solid#CAAD75;
     border-radius: 20px;
     margin-bottom: 30px;
@@ -303,10 +303,10 @@ export default {
 }
 
 .fancy-text {
-    font-size: 15px;
+    font-size: 20px;
     color: #000000;
     font-family: 'PingFangSC-Regular';
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     opacity: 0.6;
     border-radius: 20px;
     font-weight: 540;
@@ -323,14 +323,13 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 30px;
+    width: 250px;
+    height: 40px;
     /*border: 5px solid#CAAD75;*/
     border-radius: 20px;
-
     margin-top: 25px;
     margin-bottom: 0px;
-    background-image: linear-gradient(270deg, rgba(227, 173, 97, 0.00) 0%, #fcd8a5 50%, rgba(255, 223, 179, 0.00) 100%);
+    background-image: linear-gradient(270deg, rgba(137, 80, 1, 0) 0%, #ffe4bd 50%, rgba(255, 223, 179, 0.00) 100%);    
 
 }
 
@@ -376,9 +375,9 @@ export default {
 
 .help-button-container {
     position: absolute;
-    top: 140px;
-    /* Adjust this value as needed */
-    right: 17px;
+    top: 175px;
+        /* Adjust this value as needed */
+    right: 19px;
     /* Adjust this value as needed */
     z-index: 1000;
     /* padding: 5px;*/
