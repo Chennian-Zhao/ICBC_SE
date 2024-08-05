@@ -248,6 +248,7 @@ export default {
   display: flex;
   justify-content: center;
   margin-top: 450px; /* 将元素推到容器底部 */
+  margin-left: auto;
 
   
 }
