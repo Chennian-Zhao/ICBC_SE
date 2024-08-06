@@ -45,6 +45,11 @@
       <DiyPop/>
     </el-row>
 
+    <el-row class="main-content">
+      <!-- todo 个性化弹窗 -->
+      <DiySkinPop/>
+    </el-row>
+
     <!-- region todo 提现和买入窗口跳转 -->
     <el-row class="actions">
       <el-button type="primary" plain @click="goToCash" class="action-button cash-button">提现</el-button>
@@ -62,7 +67,8 @@ import GoldPricePop from '@/components/pops/GoldPricePop.vue';
 import QuickPop from "@/components/pops/QuickPop.vue";
 import DiyPop from "@/components/pops/DiyPop.vue";
 import backgroundImagePath from '@/assets/bg@2x@2x.png';
-import state from "@/api/global_variable.js"; // 导入图片
+import state from "@/api/global_variable.js";
+import DiySkinPop from "@/components/pops/DiySkinPop.vue"; // 导入图片
 
 const router = useRouter();
 
