@@ -196,7 +196,7 @@ const imageSrc = ref('./src/assets/image1.png')
 
 
 const showInfo = () => {
-  ElMessageBox.alert('参加盲盒活动可以获得惊喜礼品！活动时间：xxxx活动内容：xxxx金豆子皮肤:xxxx参与方式：xxxxx注意事项：xxx',
+  ElMessageBox.alert('参加盲盒活动可以获得惊喜礼品！盲盒主题包含有三丽鸥和迪士尼金豆子皮肤抽取',
       '盲盒活动详情', {
         confirmButtonText: 'OK',
       })
