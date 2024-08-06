@@ -25,12 +25,12 @@
           <span class="small-text">主题限定~定额赠送</span>
         </div>
         <div class="block-content">
-          <el-form :model="form" ref="form" label-width="120px">
+          <el-form :model="form" ref="form" label-width="150px">
             <el-form-item label="赠予克数" prop="weight" class="form-item">
               <el-input type="number" v-model="form.weight" min="0.1" placeholder="请输入(0.1g起)"></el-input>
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
-            <el-form-item label="等额金豆赠送（¥/g）" prop="equivalent" class="form-item">
+            <el-form-item label="等额金豆赠送(¥/g)" prop="equivalent" class="form-item">
               <el-input type="number" v-model="form.equivalent" placeholder="免手续费"></el-input>
             </el-form-item>
           </el-form>
@@ -50,15 +50,17 @@
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="付款账户" prop="account" class="form-item">
-              <el-input type="number" v-model="form.account" placeholder="请输入15位数字"></el-input>
+              <!-- <el-input type="number" v-model="form.account" placeholder="请输入15位数字"></el-input> -->
+              <p style="color:rgb(141 113 129);text-align: center;">662008601780443</p>
             </el-form-item>
+            
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="留言" prop="message" class="form-item">
-              <el-input type="text" v-model="form.message" placeholder="留言"></el-input>
+              <el-input type="text" v-model="form.message" placeholder="请输入"></el-input>
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="短信通知" prop="smsNotification" class="form-item">
-              <el-checkbox v-model="form.smsNotification">是否使用短信通知</el-checkbox>
+              <el-checkbox v-model="form.smsNotification"></el-checkbox>
             </el-form-item>
           </el-form>
         </div>
@@ -120,7 +122,15 @@ export default {
 };
 </script>
 
+<style>
+/*表单居中 */
+.el-form-item__content {
+  align-content: center;
+}
+</style>
+
 <style scoped>
+
 /* 头部样式 */
 .header {
   display: flex; /* 使用flex布局 */
