@@ -1,26 +1,28 @@
 <template>
-  <HelloWorld msg="Vite + Vue"/>
+  <HelloWorld msg="Vite + Vue" />
   <div class="background-container">
     <!-- 其他内容 -->
     <div>
       <van-nav-bar title="小金豆盲盒">
         <template #left>
-          <van-icon name="arrow-left" color="#ff0000" @click="onClickLeft"/>
+          <van-icon name="arrow-left" color="#ff0000" @click="onClickLeft" />
         </template>
         <template #right>
           <van-dropdown-menu class="menu-right">
-            <van-dropdown-item v-model="selected" :options="options"/>
+            <van-dropdown-item v-model="selected" :options="options" />
           </van-dropdown-menu>
         </template>
       </van-nav-bar>
 
     </div>
 
-    <van-notice-bar left-icon="volume-o" text="🎉三丽鸥陪你玩，快来开启你的三丽鸥惊喜之旅吧！🎉"/>
+    <van-notice-bar left-icon="volume-o" text="🎉三丽鸥陪你玩，快来开启你的三丽鸥惊喜之旅吧！🎉"
+      :style="{ backgroundColor: '#f8f8f8', color: '#333', fontSize: '20px' ,height:'50px'}" />
+
 
     <div class="center-container">
       <div class="help-button-container">
-        <van-icon class="help-button" size="20px" @click="onHelpClick" name="replay"/>
+        <van-icon class="help-button" size="20px" @click="onHelpClick" name="replay" />
 
       </div>
       <div class="text-container">
@@ -40,25 +42,25 @@
         <van-swipe :autoplay="3000" indicator-color="white" ref="swipe">
           <van-swipe-item v-for="(item, index) in images" :key="index">
             <div class="carousel-image-wrapper">
-              <img :src="item.src" :alt="item.alt" class="carousel-image"/>
+              <img :src="item.src" :alt="item.alt" class="carousel-image" />
               <div class="carousel-caption">{{ item.caption }}</div>
             </div>
           </van-swipe-item>
         </van-swipe>
-        <van-icon name="arrow-left" class="carousel-nav left-nav" @click="prev"/>
-        <van-icon name="arrow" class="carousel-nav right-nav" @click="next"/>
+        <van-icon name="arrow-left" class="carousel-nav left-nav" @click="prev" />
+        <van-icon name="arrow" class="carousel-nav right-nav" @click="next" />
       </div>
     </div>
     <van-action-bar>
       <van-col span="4" class="icon-column">
-        <van-action-bar-icon icon="coupon-o" text="显示卡" @click="showCardDialog"/>
+        <van-action-bar-icon icon="coupon-o" text="显示卡" @click="showCardDialog" />
       </van-col>
 
-      <van-action-bar-button class="button" type="primary" text="就抽它" @click="goToLuckyPage"/>
+      <van-action-bar-button class="button" type="primary" text="就抽它" @click="goToLuckyPage" />
 
       <van-col span="4" class="icon-column">
         <van-badge :content="2" color="#d73434">
-          <van-action-bar-icon icon="coupon-o" text="提示卡" @click="showTipDialog"/>
+          <van-action-bar-icon icon="coupon-o" text="提示卡" @click="showTipDialog" />
         </van-badge>
       </van-col>
     </van-action-bar>
@@ -138,15 +140,7 @@ export default {
       this.tipDialogVisible = true; // 显示提示卡弹窗
     },
     onHelpClick() {
-
-      // Trigger the flash effect
-      this.isFlashing = true;
-
-      // Reset the flashing effect after the animation duration
-      setTimeout(() => {
-        this.isFlashing = false;
-      }, 500); // Duration of the flash animation
-
+      this.$router.push('/disney');
     }
   }
 };
@@ -213,8 +207,8 @@ export default {
 
 .carousel-container {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-radius: 50px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -241,14 +235,14 @@ export default {
 
 .carousel-caption {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(175, 93, 0, 0.5);
+  background: rgba(85, 45, 0, 0.5);
   color: white;
   padding: 0px 20px;
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .center-container {
@@ -265,7 +259,7 @@ export default {
 .background-container {
   width: 100%;
   height: 100vh;
-  background-image: url('../assets/images/三丽鸥.jpg');
+  background-image: url('../assets/images/三丽鸥1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -277,10 +271,11 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border: 5px solid #CAAD75;
   border-radius: 20px;
+  margin-bottom: 30px;
   background-color: rgb(252, 249, 245, 0.6);
 }
 
@@ -308,7 +303,7 @@ export default {
 }
 
 .fancy-text {
-  font-size: 15px;
+  font-size: 20px;
   color: #000000;
   font-family: 'PingFangSC-Regular';
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -325,12 +320,12 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 30px;
+  width: 250px;
+  height: 40px;
   border-radius: 20px;
   margin-top: 25px;
   margin-bottom: 0px;
-  background-image: linear-gradient(270deg, rgba(227, 173, 97, 0.00) 0%, #fcd8a5 50%, rgba(255, 223, 179, 0.00) 100%);
+  background-image: linear-gradient(270deg, rgba(227, 173, 97, 0.00) 0%, #ffe4bd 50%, rgba(255, 223, 179, 0.00) 100%);
 }
 
 .carousel-nav {
@@ -363,7 +358,7 @@ export default {
 }
 
 .dialog-content {
-  background: url('../assets/images/三丽鸥2.jpg') no-repeat center center;
+  background: url('../assets/images/dialog.jpg') no-repeat center center;
   background-size: cover;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -375,9 +370,9 @@ export default {
 
 .help-button-container {
   position: absolute;
-  top: 125px;
+  top: 175px;
   /* Adjust this value as needed */
-  right: 17px;
+  right: 19px;
   /* Adjust this value as needed */
   z-index: 1000;
   /* padding: 5px;*/

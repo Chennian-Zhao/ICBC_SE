@@ -1,13 +1,11 @@
-
-
 <template>
   <div class="transfer-page">
     <div class="header">
-      <img src="../assets/arrow_right@2x.png" @click="goBack" class="back-icon">
+      <img src="@/assets/arrow_right@2x.png" @click="goBack" class="back-icon">
       <p class="header-title"><strong>赠金予卿 留爱于心</strong></p>
     </div>
     <div class="banner">
-      <img src="@/assets/banner.png" alt="七夕节" class="banner-img" />
+      <img :src="bannerImage" alt="七夕节" class="banner-img" />
     </div>
     <div class="gift-options">
       <div class="options">
@@ -21,10 +19,9 @@
         </button>
       </div>
       <div class="gift-item" @click="goToGiftSettlementPage">
-
         <div class="golden-rectangle">
-            <img src="@/assets/gift.png" alt="Gift" class="gift-img" />
-         </div>
+          <img :src="giftImage" alt="Gift" class="gift-img" />
+        </div>
         <button class="gift-button">赠送</button>
       </div>
     </div>
@@ -32,12 +29,17 @@
 </template>
 
 <script>
+import bannerImage from '@/assets/banner.png';
+import giftImage from '@/assets/gift.png';
+
 export default {
   name: 'Transfer',
   data() {
     return {
       options: ['乞巧金', '孝顺金', '友谊金', '智慧金'],
-      selectedOption: 0
+      selectedOption: 0,
+      bannerImage: bannerImage,
+      giftImage: giftImage
     };
   },
   methods: {
@@ -47,54 +49,72 @@ export default {
     goBack() {
       this.$router.push({ name: 'Home' });
     },
-    selectOption(index) {
+    async selectOption(index) {
       this.selectedOption = index;
+      switch (index) {
+        case 0:
+          this.bannerImage = (await import('@/assets/banner.png')).default;
+          this.giftImage = (await import('@/assets/gift.png')).default;
+          break;
+        case 1:
+          this.bannerImage = (await import('@/assets/banner.png')).default;
+          this.giftImage = (await import('@/assets/gift1.png')).default;
+          break;
+        case 2:
+          this.bannerImage = (await import('@/assets/banner.png')).default;
+          this.giftImage = (await import('@/assets/gift2.png')).default;
+          break;
+        case 3:
+          this.bannerImage = (await import('@/assets/banner.png')).default;
+          this.giftImage = (await import('@/assets/gift3.png')).default;
+          break;
+        default:
+          this.bannerImage = (await import('@/assets/banner.png')).default;
+          this.giftImage = (await import('@/assets/gift.png')).default;
+      }
     }
   }
 };
 </script>
 
 <style scoped>
-
-
+/* 保持原样 */
 .transfer-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
   position: relative;
-  background-color: #fbf1d0; /* 设置 transfer-page 的背景颜色 */
-  width: 100vw; /* 确保背景覆盖整个视口宽度 */
-  height: 100vh; /* 确保背景覆盖整个视口高度 */
+  background-color: #fbf1d0;
+  width: 100vw;
+  height: 100vh;
 }
 
 .header {
   display: flex;
   align-items: center;
-  justify-content: center; /* 水平居中对齐 */
-  width: 100%; /* 占满整个宽度 */
-  padding: 10px 20px; /* 添加一些内边距 */
-  box-sizing: border-box; /* 包括内边距和边框在内的总宽度 */
-  position: relative; /* 使子元素可以使用绝对定位 */
+  justify-content: center;
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .header-title {
   flex-grow: 1;
   text-align: center;
-  color: gold; /* 设置字体颜色为金黄色 */
-  font-weight: bold; /* 设置字体为粗体 */
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* 设置黑色边框 */
-  margin-top: 60px; /* 往下一点 */
-  font-size: 24px; /* 设置字体大小 */
+  color: gold;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  margin-top: 6px;
+  font-size: 24px;
 }
 
 .back-icon {
   position: relative;
-  left: -15px; /* 调整左边距，使图片更靠左 */
+  left: -15px;
   width: 50px;
   height: 50px;
-  margin-top: 40px; /* 往下一点 */
+  margin-top: -7px;
   cursor: pointer;
   transform: rotate(180deg);
 }
@@ -115,7 +135,7 @@ export default {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin-top:20px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -125,11 +145,11 @@ export default {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
-  border: 2px solid gold; /* 添加金色边框 */
+  border: 2px solid gold;
   color: white;
   transition: background-color 0.3s, color 0.3s;
-  font-size: 18px; /* 增大字体 */
-  font-family: 'Microsoft YaHei', sans-serif; /* 设置字体为微软雅黑 */
+  font-size: 18px;
+  font-family: 'Microsoft YaHei', sans-serif;
 }
 
 .option-button.selected {
@@ -142,28 +162,28 @@ export default {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: relative;;
+  position: relative;
 }
 
 .gift-img {
-  width: 100%; /* 使图片适应矩形 */
+  width: 100%;
   height: auto;
-  border-radius: 15px; /* 确保图片的圆角与矩形一致 */
+  border-radius: 15px;
 }
 
 .golden-rectangle {
-  width: 360px; /* 设置矩形的宽度 */
-  height: 300px; /* 设置矩形的高度 */
-  border: 2px solid gold; /* 金黄色边框 */
-  border-radius: 15px; /* 圆角 */
-  margin-top: 20px; /* 与其他元素之间的间距 */
-  background-color: white; /* 矩形背景色 */
-  overflow: hidden; /* 确保图片不会超出矩形边界 */
-  display: flex; /* 使用 Flexbox 布局 */
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
+  width: 360px;
+  height: 300px;
+  border: 2px solid gold;
+  border-radius: 15px;
+  margin-top: 20px;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  animation: glowing 1.5s infinite; /* 添加流光效果 */
+  animation: glowing 1.5s infinite;
 }
 
 @keyframes glowing {
@@ -179,6 +199,6 @@ export default {
   cursor: pointer;
   border-radius: 5px;
   color: white;
-  margin-top: 10px; /* 添加一些顶部外边距，使按钮与图片之间有间距 */
+  margin-top: 10px;
 }
 </style>

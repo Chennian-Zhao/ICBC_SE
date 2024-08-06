@@ -10,7 +10,9 @@ import Blindbox from '@/components/Blindbox.vue'
 import Lucky2 from '@/components/Lucky2.vue'
 import Lucky1 from '@/components/lucky1.vue'
 import Disney from '@/components/disney.vue'
+import TransferView from "@/components/TransferView.vue";
 import GiftSettlement from '@/components/GiftSettlement.vue';
+import GiftSettlement from '@/components/GiftSettlement.vue'; 
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
