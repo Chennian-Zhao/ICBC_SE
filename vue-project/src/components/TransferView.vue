@@ -136,18 +136,18 @@ export default {
   margin-top: 20px;
 }
 .tip {
-  height: 150px;
-  background-color: #f0c040;
   .tip_font {
     font-size: 20px;
-    color: white;
+    color: black;
+    font-family: 'Microsoft YaHei', sans-serif; /* 设置字体为微软雅黑 */
 
   }
 }
 .secret {
-  height: 200px;
+  height: auto;
   
 }
+
 .gift-options {
   display: flex;
   flex-direction: column;
