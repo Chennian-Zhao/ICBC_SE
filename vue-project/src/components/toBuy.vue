@@ -130,17 +130,24 @@
         <el-form-item label="盲合活动">
           <!-- <el-checkbox v-model="form.participateInBlindBox"></el-checkbox> -->
           <el-button plain @click="showInfo" style="width: 50%">了解盲盒活动</el-button>
-          <el-switch
+          <!-- <el-switch
               v-model="value2"
               class="mt-2"
               style="margin-left: 24px; --el-switch-on-color:#0a0c15;--el-switch-off-color:#0a0c15;  "
               inline-prompt
               :active-icon="Check"
               :inactive-icon="Close"
+          /> -->
+          <el-switch
+              v-model="value2"
+              class="mt-2"
+              style="margin-left: 24px; --el-switch-on-color:#c6d106;--el-switch-off-color:#cfd1d9;  "
+              inline-prompt
+         
           />
         </el-form-item>
 
-        <el-button type="primary" @click="submitForm">买入</el-button>
+        <el-button type="primary" style="--el-color-primary:#f9b628;--el-button-text-color: #000000;" @click="submitForm">买入</el-button>
 
       </el-form>
     </el-card>
@@ -241,6 +248,8 @@ const submitForm = () => {
   state.quickGram = 0
   if(value2.value == true) {
     router.push("Blindbox")
+  }else{
+    router.push("/")
   }
 }
 
@@ -249,11 +258,11 @@ const selectvalue = ref('Optiongrams')
 const options = [
   {
     value: 'Optiongrams',
-    label: '按克积存',
+    label: '克数',
   },
   {
     value: 'Optionmoney',
-    label: '按钱积存',
+    label: '金额',
   },
 
 ]
@@ -314,7 +323,7 @@ const goBack = () => {
   --el-text-color-placeholder: #868bd3;
   --el-border-color-light: #dde1ea;
   --el-fill-color-light: #e8e5e5;
-  --el-color-white: #e0e84d;
+  --el-color-white: #fffff6;
 
 }
 
