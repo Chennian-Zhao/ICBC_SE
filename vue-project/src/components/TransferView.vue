@@ -7,6 +7,14 @@
     <div class="banner">
       <img :src="bannerImage" alt="七夕节" class="banner-img" />
     </div>
+    <div class="tip">
+        <p class="tip_font">挑选心仪的主题金豆或盲盒赠送礼物</p>
+    </div>
+    <div class="secret">
+      <img src="../assets/secretgift.gif" alt="盲盒GIF" class="blind-box-gif">
+    </div>
+
+
     <div class="gift-options">
       <div class="options">
         <button
@@ -18,12 +26,18 @@
           {{ option }}
         </button>
       </div>
-      <div class="gift-item" @click="goToGiftSettlementPage">
+      
+      <div class="giftbox">
+        <div class="giftDecor" >    
+          <img :src="giftImage" alt="Gift" class="gift-img" />
+      </div>
+      </div>
+      <!-- <div class="gift-item" @click="goToGiftSettlementPage">
         <div class="golden-rectangle">
           <img :src="giftImage" alt="Gift" class="gift-img" />
         </div>
-        <button class="gift-button">赠送</button>
-      </div>
+      </div> -->
+      <button class="gift-button" @click="goToGiftSettlementPage">赠送</button>
     </div>
   </div>
 </template>
@@ -90,6 +104,7 @@ export default {
 }
 
 .header {
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,6 +112,7 @@ export default {
   padding: 10px 20px;
   box-sizing: border-box;
   position: relative;
+  background-color: aliceblue
 }
 
 .header-title {
@@ -108,8 +124,8 @@ export default {
 .back-icon {
   position: relative;
   left: -15px;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin-top: -7px;
   cursor: pointer;
   transform: rotate(180deg);
@@ -119,7 +135,19 @@ export default {
   width: 100%;
   margin-top: 20px;
 }
+.tip {
+  height: 150px;
+  background-color: #f0c040;
+  .tip_font {
+    font-size: 20px;
+    color: white;
 
+  }
+}
+.secret {
+  height: 200px;
+  
+}
 .gift-options {
   display: flex;
   flex-direction: column;
@@ -153,18 +181,34 @@ export default {
   color: #f0c040;
 }
 
-.gift-item {
+.giftbox {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  width: 100%;
+  height: 200px;
   position: relative;
+  border: 2px solid gold;
+  background-color: violet;
+  background-image: url(../assets/gift_bg.png);
+  align-items: center;
+  justify-content: center;
+}
+.giftDecor {
+  width: 150px;
+  height: 130px;
+  background-color: gold;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
 }
 
+
 .gift-img {
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
+  width: 85%;
+  height: 85%;
+  object-fit: cover; 
 }
 
 .golden-rectangle {

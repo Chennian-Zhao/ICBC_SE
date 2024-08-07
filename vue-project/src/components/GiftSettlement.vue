@@ -141,8 +141,8 @@ export default {
 
 /* 返回图标样式 */
 .back-icon {
-  width: 30px; /* 宽度为30px */
-  height: 30px; /* 高度为30px */
+  width: 40px; /* 宽度为30px */
+  height: 40px; /* 高度为30px */
   cursor: pointer; /* 鼠标悬停时显示为指针 */
   transform: rotate(180deg); /* 旋转180度 */
 }
