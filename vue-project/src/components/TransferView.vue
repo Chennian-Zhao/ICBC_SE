@@ -57,15 +57,15 @@ export default {
           this.giftImage = (await import('@/assets/gift.png')).default;
           break;
         case 1:
-          this.bannerImage = (await import('@/assets/banner.png')).default;
+          this.bannerImage = (await import('@/assets/banner1.png')).default;
           this.giftImage = (await import('@/assets/gift1.png')).default;
           break;
         case 2:
-          this.bannerImage = (await import('@/assets/banner.png')).default;
+          this.bannerImage = (await import('@/assets/banner2.png')).default;
           this.giftImage = (await import('@/assets/gift2.png')).default;
           break;
         case 3:
-          this.bannerImage = (await import('@/assets/banner.png')).default;
+          this.bannerImage = (await import('@/assets/banner3.png')).default;
           this.giftImage = (await import('@/assets/gift3.png')).default;
           break;
         default:
@@ -100,13 +100,9 @@ export default {
 }
 
 .header-title {
-  flex-grow: 1;
-  text-align: center;
-  color: gold;
-  font-weight: bold;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  margin-top: 6px;
-  font-size: 24px;
+  flex-grow: 1; /* 占据剩余空间 */
+  text-align: center; /* 文本居中对齐 */
+  font-size: 20px; /* 字体大小为20px */
 }
 
 .back-icon {
@@ -193,12 +189,15 @@ export default {
 }
 
 .gift-button {
-  background-color: #f0c040;
+  
+
+  width: 100%;
+  background-color: #f9b628;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
-  color: white;
-  margin-top: 10px;
+  color: #5a4e39;
+  margin-top: 30px;
 }
 </style>
