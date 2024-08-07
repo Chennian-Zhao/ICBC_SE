@@ -100,13 +100,9 @@ export default {
 }
 
 .header-title {
-  flex-grow: 1;
-  text-align: center;
-  color: gold;
-  font-weight: bold;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  margin-top: 6px;
-  font-size: 24px;
+  flex-grow: 1; /* 占据剩余空间 */
+  text-align: center; /* 文本居中对齐 */
+  font-size: 20px; /* 字体大小为20px */
 }
 
 .back-icon {
