@@ -48,7 +48,7 @@ const diyConfirm = () => {
   height: 60px;
   margin: 10px;
   flex: 1 1% 1%;
-  background-image: url('@/assets/换装扮@2x.png'); /* 背景图片路径 */
+  background-image: url('@/assets/我的盲盒@2x.png'); /* 背景图片路径 */
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -81,7 +81,7 @@ const diyConfirm = () => {
   width: 400px; /* 固定宽度 */
   height: 450px; /* 固定高度 */
   background-color: transparent; /* 弹窗背景颜色 */
-  background-image: url('@/assets/装扮弹窗@3x.png');
+  background-image: url('@/assets/装扮弹窗@2x.png');
   background-size: contain; /* 覆盖整个元素 */
   background-repeat: no-repeat;
   background-position: center;
