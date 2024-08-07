@@ -30,7 +30,7 @@
           <el-input v-model.number="number1" style="width: 180px" disabled type="number"  placeholder="待回显" />元
         </el-form-item>
 
-        <el-button type="primary"  style="--el-color-primary:#caae76;--el-button-text-color: #000000;  " @click="submitForm">提现</el-button>
+        <el-button type="primary"  style="--el-color-primary:#caaf77;--el-button-text-color: #594d37;  " @click="submitForm">提现</el-button>
 
       </el-form>
     </el-card>

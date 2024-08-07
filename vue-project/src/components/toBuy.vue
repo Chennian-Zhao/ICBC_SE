@@ -147,7 +147,7 @@
           />
         </el-form-item>
 
-        <el-button type="primary" style="--el-color-primary:#f9b628;--el-button-text-color: #000000;" @click="submitForm">买入</el-button>
+        <el-button type="primary" style="--el-color-primary:#f9b628;--el-button-text-color: #5a4e39;" @click="submitForm">买入</el-button>
 
       </el-form>
     </el-card>
