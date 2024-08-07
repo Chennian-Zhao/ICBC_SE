@@ -12,7 +12,6 @@ import Disney from '@/components/disney.vue'
 import TransferView from "@/components/TransferView.vue";
 import GiftSettlement from '@/components/GiftSettlement.vue';
 
-
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
