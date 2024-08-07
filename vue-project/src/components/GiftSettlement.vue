@@ -205,6 +205,7 @@ export default {
 /* 区块内容样式 */
 .block-content {
   padding: 10px; /* 内边距为10px */
+  /*简单修改 */
 }
 
   /* 分隔线样式 */
