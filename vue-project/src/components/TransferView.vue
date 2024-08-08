@@ -4,20 +4,23 @@
       <img src="@/assets/arrow_right@2x.png" @click="goBack" class="back-icon">
       <p class="header-title">赠金予卿 留爱于心</p>
     </div>
-    <div class="tip">
-      <p class="tip_font">挑选心仪的主题金豆或盲盒赠送礼物</p>
-    </div>
+  
 
     <div>
       <img :src="bannerImage" alt="七夕节" class="banner-img" />
     </div>
-    <div class="secret" @click="openBlindBoxModal">
-      <img src="../assets/secretgift.gif" alt="盲盒GIF" class="blind-box-gif">
-    </div>
+
     <div class="giftbox">
-      <div class="giftDecor">
+      <div class="secret left" @click="openBlindBoxModal">
+      <img src="../assets/side.gif " alt="盲盒GIF" class="blind-box-gif" style="transform: rotate(180deg);">
+    </div>
+    <div class="giftDecor">
         <img :src="giftImage" alt="Gift" class="gift-img" />
-      </div>
+    </div>
+    <div class="secret right" @click="openBlindBoxModal">
+      <img src="../assets/side.gif" alt="盲盒GIF" class="blind-box-gif" >
+    </div>
+      
     </div>
     <div class="gift-options">
       <div class="options">
@@ -25,6 +28,18 @@
           {{ option }}
         </button>
       </div>
+      <div class="design">
+          <div class="secret right" @click="openBlindBoxModal">
+        <img src="../assets/secretgift.gif" alt="盲盒GIF" class="design_gif">
+        </div>
+        <div class="design_tip">
+          <button class="design_button">戳戳左右盲盒赠予</button>
+        </div>
+        <div class="secret right" @click="openBlindBoxModal">
+        <img src="../assets/secretgift.gif" alt="盲盒GIF" class="design_gif">
+    </div>
+      </div>
+ 
       <button class="gift-button" @click="goToGiftSettlementPage">赠送</button>
     </div>
 
@@ -143,6 +158,7 @@ export default {
   /* 自动设置左右外边距，使图片水平居中 */
   margin: 0 auto;
 }
+
 .tip {
   width: 100%;
   display: flex; /* 使用 Flexbox 布局 */
@@ -159,9 +175,15 @@ export default {
   background-color: #f9b628;
 }
 .secret {
+  /* display: flex; 
+  justify-content: center;
+  align-items: center; 
   width: 100%;
   background-color: #f0c040;
-  height: auto;
+  height: auto; */
+  width: 45%; /* 设置宽度以便两个图片可以并排显示 */
+  display: flex;
+  justify-content: center; /* 使图片在容器内居中 */
 }
 
 .gift-options {
@@ -171,6 +193,12 @@ export default {
   width: 100%;
 }
 
+.blind-box-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .options {
   display: flex;
   justify-content: space-around;
@@ -178,7 +206,29 @@ export default {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.design {
+  border: 2px solid gold;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 20px;
+  height: auto;
+  .design_gif{
+    width: 80%;
+    object-fit: cover;
 
+  }
+  .design_button{
+    background-color: #f9b628;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #5a4e39;
+    margin-top: 70px;
+  }
+}
 .option-button {
   background-color: #a49797;
   border: none;
@@ -203,16 +253,17 @@ export default {
   height: 200px;
   position: relative;
   border: 2px solid gold;
-  background-color: violet;
-  background-image: url(../assets/gift_bg.png);
+  /* background-image: url(../assets/gift_bg.png); */
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .giftDecor {
   width: 150px;
   height: 130px;
-  background-color: gold;
   border-radius: 15px;
+  order: 8px solid gold;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -222,9 +273,10 @@ export default {
 
 
 .gift-img {
-  width: 85%;
-  height: 85%;
-  object-fit: cover; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
 }
 
 .golden-rectangle {
@@ -250,7 +302,6 @@ export default {
 
 .gift-button {
   
-
   width: 100%;
   background-color: #f9b628;
   border: none;
@@ -258,6 +309,6 @@ export default {
   cursor: pointer;
   border-radius: 5px;
   color: #5a4e39;
-  margin-top: 30px;
+  
 }
 </style>
