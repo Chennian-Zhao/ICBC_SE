@@ -99,7 +99,8 @@ const diyConfirm = () => {
   width: 400px; /* 固定宽度 */
   height: 450px; /* 固定高度 */
   background-color: transparent; /* 弹窗背景颜色 */
-  background-image: url('@/assets/装扮弹窗@3x.png');
+  /* background-image: url('@/assets/装扮弹窗@3x.png'); */
+  background-image: url('@/assets/我的装扮.png');
   background-size: contain; /* 覆盖整个元素 */
   background-repeat: no-repeat;
   background-position: center;
