@@ -9,6 +9,12 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
+    AutoImport({
+      resolvers: [VantResolver()],
+    }),
+    Components({
+      resolvers: [VantResolver()],
+    }),
   ],
   resolve: {
     alias: {

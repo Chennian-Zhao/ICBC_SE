@@ -5,56 +5,61 @@
       <p class="header-title">赠金予卿 留爱于心</p>
     </div>
     <div class="tip">
-        <p class="tip_font">挑选心仪的主题金豆或盲盒赠送礼物</p>
+      <p class="tip_font">挑选心仪的主题金豆或盲盒赠送礼物</p>
     </div>
 
     <div>
       <img :src="bannerImage" alt="七夕节" class="banner-img" />
     </div>
-    
-    <div class="secret" @click="gotoBlindBox">
+    <div class="secret" @click="openBlindBoxModal">
       <img src="../assets/secretgift.gif" alt="盲盒GIF" class="blind-box-gif">
     </div>
-    <div  class="giftbox" >
-        <div class="giftDecor">    
-          <img :src="giftImage" alt="Gift"  class="gift-img" />
+    <div class="giftbox">
+      <div class="giftDecor">
+        <img :src="giftImage" alt="Gift" class="gift-img" />
       </div>
-      </div>
-
+    </div>
     <div class="gift-options">
       <div class="options">
-        <button
-          v-for="(option, index) in options"
-          :key="index"
-          :class="['option-button', { selected: selectedOption === index }]"
-          @click="selectOption(index)"
-        >
+        <button v-for="(option, index) in options" :key="index" :class="['option-button', { selected: selectedOption === index }]" @click="selectOption(index)">
           {{ option }}
         </button>
       </div>
-      
       <button class="gift-button" @click="goToGiftSettlementPage">赠送</button>
     </div>
+
+    <BlindBoxModal :isVisible="isBlindBoxModalVisible" @close="closeBlindBoxModal" />
   </div>
 </template>
 
 <script>
 import bannerImage from '@/assets/banner.png';
 import giftImage from '@/assets/gift.png';
+import BlindBoxModal from '@/components/pops/BlindBoxModal.vue';
 
 export default {
   name: 'Transfer',
+  components: {
+    BlindBoxModal
+  },
   data() {
     return {
       options: ['乞巧金', '孝顺金', '友谊金', '智慧金'],
       selectedOption: 0,
       bannerImage: bannerImage,
-      giftImage: giftImage
+      giftImage: giftImage,
+      isBlindBoxModalVisible: false
     };
   },
   methods: {
+    openBlindBoxModal() {
+      this.isBlindBoxModalVisible = true;
+    },
+    closeBlindBoxModal() {
+      this.isBlindBoxModalVisible = false;
+    },
     gotoBlindBox() {
-      this.$router.push({name:'blindbox'});
+      this.$router.push({ name: 'blindbox' });
     },
     goToGiftSettlementPage() {
       this.$router.push({ name: 'GiftSettlement' });
@@ -89,6 +94,7 @@ export default {
   }
 };
 </script>
+
 
 <style scoped>
 /* 保持原样 */
@@ -149,7 +155,20 @@ export default {
   background-color: #f9b628;
 }
 .secret {
+  width: 100%;
+  /* background-image: url(../assets/gift_bg.png); */
   height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.gift-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .gift-options {
@@ -212,7 +231,7 @@ export default {
 .gift-img {
   width: 85%;
   height: 85%;
-  object-fit: cover; 
+  object-fit: cove; 
 }
 
 .golden-rectangle {

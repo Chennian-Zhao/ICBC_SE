@@ -1,4 +1,4 @@
-import {reactive, watch} from 'vue';
+import { reactive, watch } from 'vue';
 // 导入图片并存储在数组中
 import bean1 from '@/assets/豆子1@2x.png';
 import bean2 from '@/assets/豆子2@2x.png';

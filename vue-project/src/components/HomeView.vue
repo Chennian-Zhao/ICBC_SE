@@ -57,6 +57,7 @@
     </el-row>
     <!-- endregion 提现和买入 -->
   </div>
+  
 </template>
 
 <script setup>
@@ -69,6 +70,7 @@ import DiyPop from "@/components/pops/DiyPop.vue";
 import backgroundImagePath from '@/assets/bg@2x@2x.png';
 import state from "@/api/global_variable.js";
 import DiySkinPop from "@/components/pops/DiySkinPop.vue"; // 导入图片
+
 
 const router = useRouter();
 
