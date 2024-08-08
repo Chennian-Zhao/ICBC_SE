@@ -2,18 +2,24 @@
   <div class="transfer-page">
     <div class="header">
       <img src="@/assets/arrow_right@2x.png" @click="goBack" class="back-icon">
-      <p class="header-title"><strong>赠金予卿 留爱于心</strong></p>
-    </div>
-    <div class="banner">
-      <img :src="bannerImage" alt="七夕节" class="banner-img" />
+      <p class="header-title">赠金予卿 留爱于心</p>
     </div>
     <div class="tip">
         <p class="tip_font">挑选心仪的主题金豆或盲盒赠送礼物</p>
     </div>
-    <div class="secret">
+
+    <div>
+      <img :src="bannerImage" alt="七夕节" class="banner-img" />
+    </div>
+    
+    <div class="secret" @click="gotoBlindBox">
       <img src="../assets/secretgift.gif" alt="盲盒GIF" class="blind-box-gif">
     </div>
-
+    <div  class="giftbox" >
+        <div class="giftDecor">    
+          <img :src="giftImage" alt="Gift"  class="gift-img" />
+      </div>
+      </div>
 
     <div class="gift-options">
       <div class="options">
@@ -27,16 +33,6 @@
         </button>
       </div>
       
-      <div class="giftbox">
-        <div class="giftDecor" >    
-          <img :src="giftImage" alt="Gift" class="gift-img" />
-      </div>
-      </div>
-      <!-- <div class="gift-item" @click="goToGiftSettlementPage">
-        <div class="golden-rectangle">
-          <img :src="giftImage" alt="Gift" class="gift-img" />
-        </div>
-      </div> -->
       <button class="gift-button" @click="goToGiftSettlementPage">赠送</button>
     </div>
   </div>
@@ -57,6 +53,9 @@ export default {
     };
   },
   methods: {
+    gotoBlindBox() {
+      this.$router.push({name:'blindbox'});
+    },
     goToGiftSettlementPage() {
       this.$router.push({ name: 'GiftSettlement' });
     },
@@ -133,19 +132,24 @@ export default {
 
 .banner-img {
   width: 100%;
-  margin-top: 20px;
 }
 .tip {
+  width: 100%;
+  display: flex; /* 使用 Flexbox 布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 50px;
+  background-color: #f9b628;
   .tip_font {
     font-size: 20px;
     color: black;
     font-family: 'Microsoft YaHei', sans-serif; /* 设置字体为微软雅黑 */
-
   }
+  height: auto;
+  background-color: #f9b628;
 }
 .secret {
   height: auto;
-  
 }
 
 .gift-options {
