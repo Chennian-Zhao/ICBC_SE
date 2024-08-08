@@ -2,8 +2,8 @@
   <!-- 模态框的遮罩层，点击遮罩层关闭模态框 -->
   <div class="modal-overlay" v-if="isVisible" @click.self="closeModal">
     <div class="modal-content">
-      <div class="model-header">
-        <p class = "modal-header">请选择你要赠送的盲盒金豆</p>
+      <div>
+        <p class="modal-header">请从已获得盲盒中选择要送出的盲盒</p>
       </div>
       <!-- 轮播图容器 -->
       <div class="carousel">
@@ -19,7 +19,6 @@
             :alt="blindbox.name"
             class="blindbox-img"
           />
-          
         </div>
         <!-- 右侧切换按钮 -->
         <div @click="nextSlide" class="carousel-prev-icon-right"></div>
@@ -35,7 +34,13 @@
         </div>
       </div>
       <!-- 赠送按钮 -->
-      <button @click="goToGiftSettlementPage">赠送</button>
+      <button @click="handleGift" style="font-size: 18px;">赠送</button>
+      <ConfirmDialog 
+        :visible="showConfirmDialog" 
+        :blindBoxName="currentBlindBoxName"
+        @confirm="handleConfirm" 
+        @cancel="handleCancel" 
+      />
     </div>
   </div>
 </template>
@@ -44,9 +49,16 @@
 import image1 from '@/assets/images/三丽鸥/美乐蒂.png';
 import image2 from '@/assets/images/三丽鸥/帕恰狗.png';
 import image3 from '@/assets/images/三丽鸥/HelloKitty.png';
+import image4 from '@/assets/images/Disney/草莓熊.png';
+import image5 from '@/assets/images/Disney/火腿猪.png';
+import image6 from '@/assets/images/Disney/玛丽猫.png';
+import ConfirmDialog from '@/components/pops/ConfirmDialog.vue';
 
 export default {
   name: 'BlindBoxModal',
+  components: {
+    ConfirmDialog
+  },
   props: {
     // 控制模态框是否可见
     isVisible: {
@@ -58,33 +70,38 @@ export default {
     return {
       // 盲盒图片列表
       blindboxes: [
-        { name: '盲盒1', image: image1 },
-        { name: '盲盒2', image: image2 },
-        { name: '盲盒3', image: image3 },
-        { name: '盲盒4', image: image1 },
-        { name: '盲盒5', image: image2 },
-        { name: '盲盒6', image: image3 }
+        { name: '美乐蒂', image: image1 },
+        { name: '帕恰狗', image: image2 },
+        { name: 'HelloKitty', image: image3 },
+        { name: '草莓熊', image: image4 },
+        { name: '火腿猪', image: image5 },
+        { name: '玛丽猫', image: image6 }
       ],
       dynamicstyle: "", // 动态样式，用于控制图片的动画效果
       dynamicTextStyle: "",
       currentSlide: 0, // 当前显示的图片索引
       interval: null, // 定时器对象
+      showConfirmDialog: false, // 控制确认弹窗的显示
+      currentBlindBoxName: '' // 当前盲盒名称
     };
   },
   mounted() {
     // 组件挂载后启动自动播放
     this.startSlideshow();
+    this.updateCurrentBlindBoxName();
   },
   methods: {
     // 切换到下一张图片
     nextSlide() {
       this.currentSlide = (this.currentSlide + 1) % this.blindboxes.length;
       this.setStyle();
+      this.updateCurrentBlindBoxName();
     },
     // 切换到上一张图片
     prevSlide() {
       this.currentSlide = (this.currentSlide - 1 + this.blindboxes.length) % this.blindboxes.length;
       this.setStyle();
+      this.updateCurrentBlindBoxName();
     },
     // 设置图片的动画效果
     setStyle() {
@@ -96,6 +113,7 @@ export default {
       this.interval = setInterval(() => {
         this.currentSlide = (this.currentSlide + 1) % this.blindboxes.length;
         this.setStyle();
+        this.updateCurrentBlindBoxName();
       }, 3000);
     },
     // 停止自动播放
@@ -106,15 +124,29 @@ export default {
     closeModal() {
       this.$emit('close');
     },
+    // 显示确认弹窗
+    handleGift() {
+      this.stopSlideshow(); // 停止轮播
+      this.showConfirmDialog = true;
+    },
     // 跳转到赠送结算页面
-    goToGiftSettlementPage() {
+    handleConfirm() {
+      console.log('跳转到赠送结算页面');
+      this.showConfirmDialog = false;
       this.$emit('close');
       this.$router.push({ name: 'GiftSettlement' });
+    },
+    handleCancel() {
+      this.startSlideshow(); // 重新启动轮播
+      this.showConfirmDialog = false;
+    },
+    // 更新当前盲盒名称
+    updateCurrentBlindBoxName() {
+      this.currentBlindBoxName = this.blindboxes[this.currentSlide].name;
     }
   }
 };
 </script>
-
 <style scoped>
 /* 模态框遮罩层样式 */
 .modal-overlay {
@@ -127,12 +159,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 /* 模态框内容样式 */
 .modal-content {
-  background:#fef5e8;
+  background: #fef5e8;
   padding: 20px;
   border-radius: 10px;
   max-width: 90%;
@@ -140,15 +171,18 @@ export default {
   overflow: hidden;
   border: 5px solid gold; /* 添加金色边框 */
 }
+
 /* 模态框头部样式 */
 .modal-header {
-  width:100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   text-align: center; /* 文字居中 */
   margin-bottom: 30px;
+  font-size: 20px;
   font-family: 'Microsoft YaHei', Georgia, 'Times New Roman', Times, serif; /* 使用微软雅黑字体 */
 }
+
 /* 轮播图容器样式 */
 .carousel {
   position: relative;
@@ -168,6 +202,7 @@ export default {
   position: absolute;
   width: inherit;
   margin: 0;
+  object-fit: cover;
   padding: 0;
   top: 0;
   left: 0;
@@ -190,6 +225,8 @@ export default {
   background-position: center;
   z-index: 999;
 }
+
+/* 右
 
 /* 右侧切换按钮样式 */
 .carousel-prev-icon-right {
@@ -220,6 +257,7 @@ button {
 
 /* 赠送按钮悬停样式 */
 button:hover {
+  
   background-color: #0056b3;
 }
 /* 盲盒名字样式 */
@@ -234,7 +272,7 @@ button:hover {
 .carousel-text {
   position: relative;
   width: 320px;
-  height: 30px; /* 调整高度以适应文字 */
+  height: 40px; /* 调整高度以适应文字 */
   overflow: hidden;
   margin-top: 10px;
 }
@@ -244,7 +282,7 @@ button:hover {
   position: absolute;
   width: 100%;
   text-align: center;
-  font-size: 16px;
+  font-size: 20px;
   color: #333;
   transition: 0.5s transform ease-in-out;
 }

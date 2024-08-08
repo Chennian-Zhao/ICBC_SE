@@ -138,6 +138,10 @@ export default {
 
 .banner-img {
   width: 100%;
+  /* 将图片设置为块级元素 */
+  display: block;
+  /* 自动设置左右外边距，使图片水平居中 */
+  margin: 0 auto;
 }
 .tip {
   width: 100%;
@@ -156,19 +160,8 @@ export default {
 }
 .secret {
   width: 100%;
-  /* background-image: url(../assets/gift_bg.png); */
+  background-color: #f0c040;
   height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-
-.gift-options {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
 }
 
 .gift-options {
@@ -231,7 +224,7 @@ export default {
 .gift-img {
   width: 85%;
   height: 85%;
-  object-fit: cove; 
+  object-fit: cover; 
 }
 
 .golden-rectangle {
