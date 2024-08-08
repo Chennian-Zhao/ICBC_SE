@@ -210,7 +210,7 @@ onMounted(() => {
 .ask-me-dialog {
   width: 90%;
   height: 58%;
-  background-image: url('@/assets/智能助手弹窗@2x.png');
+  background-image: url('@/assets/智能助手弹窗_2x-修改.png');
   background-size: 100% 700px; /* 覆盖整个元素 */
   background-repeat: no-repeat;
   background-color: transparent; /* 弹窗背景颜色 */
