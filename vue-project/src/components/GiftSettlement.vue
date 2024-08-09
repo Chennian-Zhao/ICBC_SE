@@ -193,6 +193,7 @@ const router = useRouter();
 // 定义方法
 const showAlert = () => {
   console.log('确认按钮已点击');
+  state.sendmoney=0;
   showDialog.value = true;
 };
 
@@ -207,9 +208,10 @@ const goHome = () => {
 
 <style>
 /*表单居中 */
-.el-form-item__content {
+/* .el-form-item__content {
   align-content: center;
-}
+} */
+
 </style>
 
 <style scoped>

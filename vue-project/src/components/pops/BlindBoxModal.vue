@@ -53,6 +53,7 @@ import image4 from '@/assets/images/Disney/草莓熊.png';
 import image5 from '@/assets/images/Disney/火腿猪.png';
 import image6 from '@/assets/images/Disney/玛丽猫.png';
 import ConfirmDialog from '@/components/pops/ConfirmDialog.vue';
+import state from "@/api/global_variable.js";
 
 export default {
   name: 'BlindBoxModal',
@@ -134,6 +135,7 @@ export default {
       console.log('跳转到赠送结算页面');
       this.showConfirmDialog = false;
       this.$emit('close');
+      state.sendmoney=0;
       this.$router.push({ name: 'GiftSettlement' });
     },
     handleCancel() {
