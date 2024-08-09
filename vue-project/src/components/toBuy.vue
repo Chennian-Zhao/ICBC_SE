@@ -58,7 +58,7 @@
             <!-- <el-input  type="number"  class="tostore" ></el-input> -->
             <el-input v-model.number="gramsinput1" type="number" @input="updateImagegrams" style="width: 90px"
                       placeholder="请输入"/>
-            克
+                  <span class="yuankeform">克</span>
             <img :src="imageSrc" alt="动态图片"/>
           </el-form-item>
 
@@ -66,7 +66,7 @@
             <!-- <el-input  type="number"  class="storeprice" ></el-input> -->
             <!-- <p :style="{ color: }">559.87</p><p>元/克</p> -->
             <p>{{state.currentPrice.toFixed(2)}}</p>
-            <p style="color:rgb(141 113 129);">元/克</p>
+            <p style="color:rgb(141 113 129);margin-left: 6px;">元/克</p>
 
           </el-form-item>
 
@@ -74,7 +74,7 @@
           <el-form-item label="积存金额">
             <!-- <el-input v-model="form.amount" type="number" @input="updateImage" ></el-input> -->
             <el-input v-model.number="number1" style="width: 180px" disabled type="number" placeholder="待回显"/>
-            元
+            <span class="yuankeform">元</span>
             <!-- <el-input v-model="number1" style="width: 180px" disabled type="number"  placeholder="待回显" />元 -->
 
           </el-form-item>
@@ -95,14 +95,14 @@
           <el-form-item label="积存份额">
             <!-- <el-input  type="number"  class="tostore" ></el-input> -->
             <el-input v-model.number="gramsinput2" type="number" disabled style="width: 90px" placeholder="待回显"/>
-            克
+            <span class="yuankeform">克</span>
             <img :src="imageSrc" alt="动态图片"/>
           </el-form-item>
 
           <el-form-item label="积存价格">
             <!-- <el-input  type="number"  class="storeprice" ></el-input> -->
             <p>{{state.currentPrice.toFixed(2)}}</p>
-            <p style="color:rgb(141 113 129);">元/克</p>
+            <p style="color:rgb(141 113 129);margin-left: 6px;">元/克</p>
           </el-form-item>
 
 
@@ -110,7 +110,7 @@
             <!-- <el-input v-model="form.amount" type="number" @input="updateImage" ></el-input> -->
             <el-input v-model.number="number2" style="width: 180px" type="number" @input="updateImagemoney"
                       placeholder="请输入"/>
-            元
+                      <span class="yuankeform">元</span>
             <!-- <el-input v-model.number="number2" style="width: 180px" type="number"  placeholder="请输入金额  " />元 -->
           </el-form-item>
 
@@ -331,7 +331,11 @@ const goBack = () => {
 </style>
 
 <style scoped>
-
+.yuankeform{
+  margin-left: 6px;
+  /* margin-bottom: 8px;
+  margin-top: -8px; */
+}
 .el-card {
   padding: 20px;
   max-width: 500px;

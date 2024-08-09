@@ -52,19 +52,21 @@
       </div>
     </div>
     <van-action-bar>
+      <!-- 提示卡 
       <van-col span="4" class="icon-column">
         <van-action-bar-icon icon="coupon-o" text="显示卡" @click="showCardDialog" />
       </van-col>
-
+    -->
       <van-action-bar-button class="button" type="primary" text="就抽它" @click="goToLuckyPage" />
-
+      <!-- 提示卡 
       <van-col span="4" class="icon-column">
         <van-badge :content="2" color="#d73434">
           <van-action-bar-icon icon="coupon-o" text="提示卡" @click="showTipDialog" />
         </van-badge>
       </van-col>
+    -->
     </van-action-bar>
-
+    <!-- 提示卡弹窗 
     <van-dialog v-model:show="cardDialogVisible" title="显示卡" show-cancel-button class="custom-dialog">
       <div class="dialog-content">
         显示卡：用此卡后可以直接显示出盲盒样式
@@ -72,7 +74,8 @@
         * 可用积分兑换
       </div>
     </van-dialog>
-    <!-- 提示卡弹窗 -->
+  -->
+    <!-- 提示卡弹窗 
     <van-dialog v-model:show="tipDialogVisible" title="提示卡" show-cancel-button class="custom-dialog">
       <div class="dialog-content">
         提示卡：用此卡后可以排除盲盒样式
@@ -80,6 +83,7 @@
         * 可用积分兑换
       </div>
     </van-dialog>
+    -->
   </div>
 </template>
 
@@ -196,9 +200,18 @@ export default {
 .van-dropdown-item__option--active {
   color: #d73434;
 }
-
+.van-action-bar {
+  display: flex;
+  justify-content: center;
+  /* 水平居中对齐 */
+}
 .button {
   background-color: #CAAD75;
+  width: 80%;
+  /* 将按钮宽度设为父容器的 80% */
+  max-width: 300px;
+  /* 可选，设置最大宽度 */
+  text-align: center;
 }
 
 .van-nav-bar__left {
