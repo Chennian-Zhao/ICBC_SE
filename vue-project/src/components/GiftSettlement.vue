@@ -49,6 +49,7 @@
           <el-form-item label="赠予克数" class="form-item">
             <el-input v-model.number="gramsinput1" type="number" @input="updateImagegrams" style="width: 90px"
                       placeholder="请输入" class="form-item-input"/>
+                      <span class="yuankeform">克</span>
           </el-form-item>
 
 
@@ -57,12 +58,16 @@
         <div v-if="selectvalue == 'Optionmoney'">
           <el-form-item label="赠予克数 " class="form-item">
             <el-input v-model.number="gramsinput2" type="number" disabled style="width: 90px" placeholder="待回显" class="form-item-input"/>
+            <span class="yuankeform">克</span>
           </el-form-item>
           <div class="divider"></div> <!-- 分隔线 -->
           <el-form-item label="赠予金额" class="form-item">
             <el-input v-model.number="number2" style="width: 180px" type="number" @input="updateImagemoney"
-                      placeholder="请输入" class="form-item-input" />
+                      placeholder="请输入" class="form-item-input" 
+                      />
+            <span class="yuankeform">元</span>
           </el-form-item>
+          
           <div class="divider"></div> <!-- 分隔线 -->
 
           <el-form-item label="赠予费率" class="form-item"> 
@@ -256,8 +261,14 @@ const goHome = () => {
 .form-item-input{
   margin-top: -15px;
 }
+
 .form-item-font{
   margin-top: 3px;
+}
+.yuankeform{
+  margin-left: 6px;
+  margin-bottom: 8px;
+  margin-top: -8px;
 }
 /* 表单标签样式 */
 .el-form-item__label {
