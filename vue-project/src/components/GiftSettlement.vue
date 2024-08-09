@@ -257,6 +257,7 @@ const goHome = () => {
 
 <style scoped>
 
+
 /* 头部样式 */
 .header {
   display: flex; /* 使用flex布局 */

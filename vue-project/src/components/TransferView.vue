@@ -84,9 +84,9 @@ export default {
       }else if(this.selectedOption==1){
         state.sendmoney=999;
       }else if(this.selectedOption==2){
-        state.sendmoney=888;
-      }else{
         state.sendmoney=100;
+      }else{
+        state.sendmoney=888;
       }
       this.$router.push({ name: 'GiftSettlement' });
     },
