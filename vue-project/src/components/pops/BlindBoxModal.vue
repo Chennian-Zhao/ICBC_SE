@@ -257,11 +257,7 @@ button {
   margin-top: 30px;
 }
 
-/* 赠送按钮悬停样式 */
-button:hover {
-  
-  background-color: #0056b3;
-}
+
 /* 盲盒名字样式 */
 .blindbox-name {
   text-align: center;
