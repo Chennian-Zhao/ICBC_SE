@@ -33,14 +33,14 @@
         <img src="../assets/secretgift.gif" alt="盲盒GIF" class="design_gif">
         </div>
         <div class="design_tip">
-          <button class="design_button">戳戳左右盲盒赠予</button>
+          <button class="design_button">戳戳左右赠送盲盒金豆</button>
         </div>
         <div class="secret right" @click="openBlindBoxModal">
         <img src="../assets/secretgift.gif" alt="盲盒GIF" class="design_gif">
     </div>
       </div>
  
-      <button class="gift-button" @click="goToGiftSettlementPage">赠送</button>
+      <button class="gift-button" @click="goToGiftSettlementPage">戳我赠送主题金豆</button>
     </div>
 
     <BlindBoxModal :isVisible="isBlindBoxModalVisible" @close="closeBlindBoxModal" />
