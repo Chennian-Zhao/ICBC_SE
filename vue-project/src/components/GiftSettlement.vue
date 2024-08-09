@@ -25,9 +25,7 @@
           <span class="small-text">主题限定~定额赠送</span>
         </div>
         <div class="block-content">
-          <el-form :model="form" ref="form" label-width="150px">
-
-
+          <el-form :model="form" ref="form" label-width="120px">
             <el-form-item label="赠予方式">
           <el-select
               v-model="selectvalue"
@@ -95,7 +93,7 @@
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="付款账户" prop="account" class="form-item">
               <!-- <el-input type="number" v-model="form.account" placeholder="请输入15位数字"></el-input> -->
-              <p style="color:rgb(141 113 129);text-align: center;">662008601780443</p>
+              <p  style="color:rgb(141 113 129);text-align: center;">662008601780443</p>
             </el-form-item>
             
             <div class="divider"></div> <!-- 分隔线 -->
@@ -239,13 +237,17 @@ const goHome = () => {
 
 <style>
 /*表单居中 */
-.el-form-item__content {
+/* .el-form-item__content {
   align-content: center;
-}
+} */
+
 </style>
 
 <style scoped>
-
+/**表单距离 */
+/* .el-form-item__label{
+  line-height: 42px;
+} */
 
 /* 头部样式 */
 .header {
