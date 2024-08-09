@@ -10,11 +10,11 @@
         <div class="block-content">
           <el-form :model="form" ref="form" label-width="120px">
             <el-form-item label="户名" prop="name" class="form-item">
-              <el-input v-model="form.name" placeholder="请输入（支持首字母检索）"></el-input>
+              <el-input v-model="form.name" placeholder="请输入（支持首字母检索）" class="form-item-input"></el-input>
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="手机号" prop="phone" class="form-item">
-              <el-input type="tel" v-model="form.phone" placeholder="请输入受赠方手机号"></el-input>
+              <el-input type="tel" v-model="form.phone" placeholder="请输入受赠方手机号" class="form-item-input"></el-input>
             </el-form-item>
           </el-form>
         </div>
@@ -26,14 +26,13 @@
         </div>
         <div class="block-content">
           <el-form :model="form" ref="form" label-width="150px">
-
-
-            <el-form-item label="赠予方式">
+            <el-form-item label="赠予方式" class="form-item">
           <el-select
               v-model="selectvalue"
               filterable
               placeholder="Select"
-              style="width: 240px"
+              class="form-item-input"
+              
           >
             <el-option
                 v-for="item in options"
@@ -44,34 +43,35 @@
           </el-select>
 
         </el-form-item>
-        <div class="divider"></div> <!-- 分隔线 -->
+        <div class="divider"></div> 
 
         <div v-if="selectvalue == 'Optiongrams'">
-          <el-form-item label="赠予克数">
+          <el-form-item label="赠予克数" class="form-item">
             <el-input v-model.number="gramsinput1" type="number" @input="updateImagegrams" style="width: 90px"
-                      placeholder="请输入"/>
+                      placeholder="请输入" class="form-item-input"/>
           </el-form-item>
 
 
         </div>
 
         <div v-if="selectvalue == 'Optionmoney'">
-          <el-form-item label="赠予克数 ">
-            <el-input v-model.number="gramsinput2" type="number" disabled style="width: 90px" placeholder="待回显"/>
+          <el-form-item label="赠予克数 " class="form-item">
+            <el-input v-model.number="gramsinput2" type="number" disabled style="width: 90px" placeholder="待回显" class="form-item-input"/>
           </el-form-item>
           <div class="divider"></div> <!-- 分隔线 -->
-          <el-form-item label="赠予金额">
+          <el-form-item label="赠予金额" class="form-item">
             <el-input v-model.number="number2" style="width: 180px" type="number" @input="updateImagemoney"
-                      placeholder="请输入"/>
+                      placeholder="请输入" class="form-item-input" />
                       元
           </el-form-item>
           <div class="divider"></div> <!-- 分隔线 -->
 
-          <el-form-item label="赠予费率">
-            <p style="color: #bd3a7c;">0.50%</p>
-            <p style="color:rgb(141 113 129);">(赠予费用</p>
-            <p style="color: #bd3a7c;">{{ (tweened.number * 0.005).toFixed(2) }}</p>
-            <p style="color:rgb(141 113 129);">元)</p>
+          <el-form-item label="赠予费率" class="form-item"> 
+           
+            <p style="color: #bd3a7c;" class="form-item-font"> 0.50%  </p>
+            <p style="color:rgb(141 113 129);" class="form-item-font">（赠予费用</p>
+            <p style="color: #bd3a7c;" class="form-item-font">{{ (tweened.number * 0.005).toFixed(2) }}</p>
+            <p style="color:rgb(141 113 129);"class="form-item-font">元）</p>
           </el-form-item>
           
         </div>
@@ -85,7 +85,7 @@
         <div class="block-content">
           <el-form :model="form" ref="form" label-width="120px">
             <el-form-item label="付款方式" prop="paymentMethod" class="form-item">
-              <el-select v-model="form.paymentMethod" placeholder="使用工行卡">
+              <el-select v-model="form.paymentMethod" placeholder="使用工行卡" class="form-item-input">
                 <el-option label="微信" value="wechat"></el-option>
                 <el-option label="支付宝" value="alipay"></el-option>
                 <el-option label="数字人民币" value="digitalRMB"></el-option>
@@ -94,17 +94,17 @@
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="付款账户" prop="account" class="form-item">
-              <!-- <el-input type="number" v-model="form.account" placeholder="请输入15位数字"></el-input> -->
-              <p style="color:rgb(141 113 129);text-align: center;">662008601780443</p>
+            
+              <p style="color:rgb(141 113 129);text-align: center;" class="form-item-font">662008601780443</p>
             </el-form-item>
             
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="留言" prop="message" class="form-item">
-              <el-input type="text" v-model="form.message" placeholder="请输入"></el-input>
+              <el-input type="text" v-model="form.message" placeholder="请输入" class="form-item-input"></el-input>
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="短信通知" prop="smsNotification" class="form-item">
-              <el-checkbox v-model="form.smsNotification"></el-checkbox>
+              <el-checkbox v-model="form.smsNotification" class="form-item-input"></el-checkbox>
             </el-form-item>
           </el-form>
         </div>
@@ -129,38 +129,7 @@
   </el-container>
 </template>
 
-<!-- <script>
-export default {
-  name: 'GiftSettlement',
-  data() {
-    return {
-      form: {
-        name: '',
-        phone: '',
-        weight: '',
-        equivalent: '',
-        paymentMethod: '',
-        account: '',
-        message: '',
-        smsNotification: false
-      },
-      showDialog: false
-    };
-  },
-  methods: {
-    showAlert() {
-      console.log('确认按钮已点击');
-      this.showDialog = true;
-    },
-    goBack() {
-      this.$router.push({ name: 'Transfer' });
-    },
-    goHome() {
-      this.$router.push({ name: 'Home' });
-    }
-  }
-};
-</script> -->
+
 
 <script setup>
 import {computed, reactive, ref, watch} from 'vue'
@@ -245,7 +214,10 @@ const goHome = () => {
 
 <style scoped>
 
-
+/* .custom-label {
+  margin-top: 0px; 
+  margin-bottom: 0px;
+} */
 /* 头部样式 */
 .header {
   display: flex; /* 使用flex布局 */
@@ -277,10 +249,15 @@ const goHome = () => {
 
 /* 表单项样式 */
 .form-item {
-  margin-top: -4px; /*顶部外边距为5px */
-  margin-bottom: -3px; /* 底部外边距为5px */
+  margin-top: -2px; /*顶部外边距为5px */
+  margin-bottom: -15px; /* 底部外边距为5px */
 }
-
+.form-item-input{
+  margin-top: -15px;
+}
+.form-item-font{
+  margin-top: 3px;
+}
 /* 表单标签样式 */
 .el-form-item__label {
   line-height: 36px; /* 行高为36px */
