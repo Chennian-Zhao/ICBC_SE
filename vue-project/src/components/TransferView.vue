@@ -186,6 +186,7 @@ export default {
   background-color: #f9b628;
 }
 .secret {
+
   width: 45%; /* 设置宽度以便两个图片可以并排显示 */
   display: flex;
   justify-content: center; /* 使图片在容器内居中 */
@@ -196,6 +197,7 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  
 }
 
 .blind-box-gif {
@@ -255,7 +257,7 @@ export default {
 .giftbox {
   display: flex;
   width: 100%;
-  height: 200px;
+  height: 250px;
   position: relative;
   border: 2px solid gold;
   /* background-image: url(../assets/gift_bg.png); */
@@ -313,7 +315,6 @@ export default {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
-  /* 我是一只羊 */
   color: #5a4e39;
   
 }
