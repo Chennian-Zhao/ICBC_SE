@@ -52,7 +52,7 @@ import bannerImage from '@/assets/banner.png';
 import giftImage from '@/assets/gift.png';
 import BlindBoxModal from '@/components/pops/BlindBoxModal.vue';
 import state from "@/api/global_variable.js";
-// import { el } from 'element-plus/es/locale';
+
 
 export default {
   name: 'Transfer',
@@ -202,7 +202,7 @@ export default {
 
 .blind-box-gif {
   width: 100%;
-  height: 100%;
+  height:200px;
   object-fit: cover;
 }
 
