@@ -15,7 +15,7 @@
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="手机号" prop="phone" class="form-item">
               <el-input type="tel" v-model="form.phone" placeholder="请输入受赠方手机号" class="form-item-input"></el-input>
-            </el-form-item>
+            </el-form-item>         
           </el-form>
         </div>
       </div>
