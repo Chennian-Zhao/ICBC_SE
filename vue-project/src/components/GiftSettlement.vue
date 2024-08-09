@@ -30,7 +30,7 @@
               <el-input type="number" v-model="form.weight" min="0.1" placeholder="请输入(0.1g起)"></el-input>
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
-            <el-form-item label="等额金豆赠送(¥/g)" prop="equivalent" class="form-item">
+            <el-form-item label="等额现金￥" prop="equivalent" class="form-item">
               <el-input type="number" v-model="form.equivalent" placeholder="免手续费"></el-input>
             </el-form-item>
           </el-form>
@@ -50,7 +50,7 @@
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="付款账户" prop="account" class="form-item">
-              <!-- <el-input type="number" v-model="form.account" placeholder="请输入15位数字"></el-input> -->
+              
               <p style="color:rgb(141 113 129);text-align: center;">662008601780443</p>
             </el-form-item>
             
@@ -92,6 +92,12 @@
 
 export default {
   name: 'GiftSettlement',
+  // props: {
+  //   selectedOption: {
+  //     type: Number,
+  //     required: true
+  //   }
+  // },
   data() {
     return {
       form: {
@@ -107,6 +113,19 @@ export default {
       showDialog: false
     };
   },
+  // watch: {
+  //   selectedOption(newVal) {
+  //     const equivalents = [520, 666, 888, 999];
+  //     if (newVal >= 0 && newVal < equivalents.length) {
+  //       this.form.equivalent = equivalents[newVal];
+  //     } else {
+  //       console.error('selectedOption 超出范围');
+  //     }
+  //   }
+  // },
+  // mounted() {
+  //   this.form.equivalent = [520, 666, 888, 999][this.selectedOption];
+  // },
   methods: {
     showAlert() {
       console.log('确认按钮已点击');
