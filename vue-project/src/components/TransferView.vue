@@ -186,12 +186,6 @@ export default {
   background-color: #f9b628;
 }
 .secret {
-  /* display: flex; 
-  justify-content: center;
-  align-items: center; 
-  width: 100%;
-  background-color: #f0c040;
-  height: auto; */
   width: 45%; /* 设置宽度以便两个图片可以并排显示 */
   display: flex;
   justify-content: center; /* 使图片在容器内居中 */
@@ -201,7 +195,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 800px;
   width: 100%;
 }
 
