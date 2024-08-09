@@ -18,16 +18,18 @@
         </el-form-item>
 
         <el-form-item  label="提现份额">
-          <el-input v-model.number="gramsinput1" type="number"  style="width: 180px" placeholder="请输入" /> 克
+          <el-input v-model.number="gramsinput1" type="number"  style="width: 180px" placeholder="请输入" /> 
+          <span class="yuankeform">克</span>
         </el-form-item>
 
 
         <el-form-item  label="实时价格">
-          <p>559.87</p><p style="color:rgb(141 113 129);">元/克</p>
+          <p>559.87</p><p style="color:rgb(141 113 129);margin-left: 6px;">元/克</p>
         </el-form-item>
 
         <el-form-item  label="到账金额" >
-          <el-input v-model.number="number1" style="width: 180px" disabled type="number"  placeholder="待回显" />元
+          <el-input v-model.number="number1" style="width: 180px" disabled type="number"  placeholder="待回显" />
+          <span class="yuankeform">元</span>
         </el-form-item>
 
         <el-button type="primary"  style="--el-color-primary:#caaf77;--el-button-text-color: #594d37;  " @click="submitForm">提现</el-button>
@@ -90,7 +92,11 @@ const goBack = () => {
 </script>
 
 <style>
-
+.yuankeform{
+  margin-left: 6px;
+  /* margin-bottom: 8px;
+  margin-top: -8px; */
+}
 .el-card {
   padding: 20px;
   max-width: 500px;
