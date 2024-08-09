@@ -62,7 +62,6 @@
           <el-form-item label="赠予金额" class="form-item">
             <el-input v-model.number="number2" style="width: 180px" type="number" @input="updateImagemoney"
                       placeholder="请输入" class="form-item-input" />
-                      元
           </el-form-item>
           <div class="divider"></div> <!-- 分隔线 -->
 
