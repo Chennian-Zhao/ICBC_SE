@@ -224,6 +224,7 @@ const router = useRouter();
 // 定义方法
 const showAlert = () => {
   console.log('确认按钮已点击');
+  state.sendmoney=0;
   showDialog.value = true;
 };
 
