@@ -12,6 +12,7 @@ const state = reactive({
     backGroundUrl: '',
     goldBeanSkins: [bean1, bean2, bean3, bean4],
     flag: true,
+    sendmoney:0,
 });
 
 // 监听 currentPrice 的变化

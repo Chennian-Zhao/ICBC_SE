@@ -2,7 +2,7 @@
   <el-container>
     <el-header class="header">
       <img src="../assets/arrow_right@2x.png" @click="goBack" class="back-icon">
-      <p class="header-title"><strong>赠金予卿，留爱于心</strong></p>
+      <p class="header-title">赠金予卿，留爱于心</p>
     </el-header>
     <el-main class="main-content">
       <div class="block">
@@ -26,13 +26,69 @@
         </div>
         <div class="block-content">
           <el-form :model="form" ref="form" label-width="150px">
-            <el-form-item label="赠予克数" prop="weight" class="form-item">
+
+
+
+            <!-- <el-form-item label="赠予克数" prop="weight" class="form-item">
               <el-input type="number" v-model="form.weight" min="0.1" placeholder="请输入(0.1g起)"></el-input>
-            </el-form-item>
-            <div class="divider"></div> <!-- 分隔线 -->
-            <el-form-item label="等额金豆赠送(¥/g)" prop="equivalent" class="form-item">
+            </el-form-item> -->
+            <!-- <div class="divider"></div> 分隔线 -->
+            <!-- <el-form-item label="等额金豆赠送(¥/g)" prop="equivalent" class="form-item">
               <el-input type="number" v-model="form.equivalent" placeholder="免手续费"></el-input>
-            </el-form-item>
+            </el-form-item> -->
+
+            <el-form-item label="赠予方式">
+          <el-select
+              v-model="selectvalue"
+              filterable
+              placeholder="Select"
+              style="width: 240px"
+          >
+            <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+            />
+          </el-select>
+
+        </el-form-item>
+        <div class="divider"></div> <!-- 分隔线 -->
+
+        <div v-if="selectvalue == 'Optiongrams'">
+          <el-form-item label="赠予克数">
+            <el-input v-model.number="gramsinput1" type="number" @input="updateImagegrams" style="width: 90px"
+                      placeholder="请输入"/>
+          </el-form-item>
+
+          <!-- <el-form-item label="积存金额">
+            <el-input v-model.number="number1" style="width: 180px" disabled type="number" placeholder="待回显"/>
+          </el-form-item> -->
+
+        </div>
+
+        <div v-if="selectvalue == 'Optionmoney'">
+          <el-form-item label="赠予克数 ">
+            <el-input v-model.number="gramsinput2" type="number" disabled style="width: 90px" placeholder="待回显"/>
+          </el-form-item>
+          <div class="divider"></div> <!-- 分隔线 -->
+          <el-form-item label="赠予金额">
+            <el-input v-model.number="number2" style="width: 180px" type="number" @input="updateImagemoney"
+                      placeholder="请输入"/>
+                      元
+          </el-form-item>
+          <div class="divider"></div> <!-- 分隔线 -->
+
+          <el-form-item label="赠予费率">
+            <p style="color: #bd3a7c;">0.50%</p>
+            <p style="color:rgb(141 113 129);">(赠予费用</p>
+            <p style="color: #bd3a7c;">{{ (tweened.number * 0.005).toFixed(2) }}</p>
+            <p style="color:rgb(141 113 129);">元)</p>
+          </el-form-item>
+          
+        </div>
+
+
           </el-form>
         </div>
       </div>
@@ -85,11 +141,7 @@
   </el-container>
 </template>
 
-<script>
-
-
-
-
+<!-- <script>
 export default {
   name: 'GiftSettlement',
   data() {
@@ -119,6 +171,80 @@ export default {
       this.$router.push({ name: 'Home' });
     }
   }
+};
+</script> -->
+
+<script setup>
+import {computed, reactive, ref, watch} from 'vue'
+import gsap from 'gsap'
+import { useRouter } from 'vue-router';
+import state from "@/api/global_variable.js";
+
+// 定义表单数据和对话框显示状态
+const form = reactive({
+  name: '',
+  phone: '',
+  weight: '',
+  equivalent: '',
+  paymentMethod: '',
+  account: '',
+  message: '',
+  smsNotification: false
+});
+
+// 定义选择器的选项
+const selectvalue = ref('Optionmoney')
+const options = [
+  {
+    value: 'Optiongrams',
+    label: '克数',
+  },
+  {
+    value: 'Optionmoney',
+    label: '金额',
+  },
+
+]
+
+//按克
+const gramsinput1 = ref(state.quickGram)
+const gramstweened = reactive({
+  gramsinput: 0
+})
+watch(gramsinput1, (n) => {
+  gsap.to(gramstweened, {duration: 0.5, gramsinput: Number(n) || 0})
+  console.log("change")
+})
+const number1 = computed(() => ((gramstweened.gramsinput * state.currentPrice * 1.005).toFixed(2)))
+
+//按钱
+const number2 = ref(state.sendmoney)
+const tweened = reactive({
+  number: state.sendmoney
+})
+watch(number2, (n) => {
+  gsap.to(tweened, {duration: 0.5, number: Number(n) || 0})
+})
+const gramsinput2 = computed(() => ((tweened.number * 0.995 / state.currentPrice).toFixed(4)))
+
+
+const showDialog = ref(false);
+
+// 获取路由实例
+const router = useRouter();
+
+// 定义方法
+const showAlert = () => {
+  console.log('确认按钮已点击');
+  showDialog.value = true;
+};
+
+const goBack = () => {
+  router.push({ name: 'Transfer' });
+};
+
+const goHome = () => {
+  router.push({ name: 'Home' });
 };
 </script>
 
