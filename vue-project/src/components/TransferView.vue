@@ -51,6 +51,8 @@
 import bannerImage from '@/assets/banner.png';
 import giftImage from '@/assets/gift.png';
 import BlindBoxModal from '@/components/pops/BlindBoxModal.vue';
+import state from "@/api/global_variable.js";
+// import { el } from 'element-plus/es/locale';
 
 export default {
   name: 'Transfer',
@@ -77,6 +79,15 @@ export default {
       this.$router.push({ name: 'blindbox' });
     },
     goToGiftSettlementPage() {
+      if(this.selectedOption==0){
+        state.sendmoney=520;
+      }else if(this.selectedOption==1){
+        state.sendmoney=999;
+      }else if(this.selectedOption==2){
+        state.sendmoney=888;
+      }else{
+        state.sendmoney=100;
+      }
       this.$router.push({ name: 'GiftSettlement' });
     },
     goBack() {
