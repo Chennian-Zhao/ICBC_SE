@@ -28,15 +28,6 @@
           <el-form :model="form" ref="form" label-width="150px">
 
 
-
-            <!-- <el-form-item label="赠予克数" prop="weight" class="form-item">
-              <el-input type="number" v-model="form.weight" min="0.1" placeholder="请输入(0.1g起)"></el-input>
-            </el-form-item> -->
-            <!-- <div class="divider"></div> 分隔线 -->
-            <!-- <el-form-item label="等额金豆赠送(¥/g)" prop="equivalent" class="form-item">
-              <el-input type="number" v-model="form.equivalent" placeholder="免手续费"></el-input>
-            </el-form-item> -->
-
             <el-form-item label="赠予方式">
           <el-select
               v-model="selectvalue"
@@ -61,9 +52,6 @@
                       placeholder="请输入"/>
           </el-form-item>
 
-          <!-- <el-form-item label="积存金额">
-            <el-input v-model.number="number1" style="width: 180px" disabled type="number" placeholder="待回显"/>
-          </el-form-item> -->
 
         </div>
 

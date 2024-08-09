@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 // @ts-ignore
 import HomeView from '@/components/HomeView.vue'
 import IntroView from "@/components/IntroView.vue";
@@ -74,7 +74,7 @@ const router = createRouter({
         {
             path: '/giftsettlement',
             name: 'GiftSettlement',
-            component: GiftSettlement
+            component: GiftSettlement,
         },
         // {
         //     path: '/test',
