@@ -59,7 +59,7 @@ export default {
   },
   data() {
     return {
-      options: ['乞巧金', '孝顺金', '友谊金', '智慧金'],
+      options: ['乞巧金', '孝顺金', '陪伴金', '友谊金'],
       selectedOption: 0,
       bannerImage: bannerImage,
       giftImage: giftImage,
