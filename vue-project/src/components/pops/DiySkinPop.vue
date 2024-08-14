@@ -20,25 +20,44 @@
       </el-row>
     </div>
     <template #footer>
-      <el-button color="#f5c153" size="large" class="confirm-button" @click="diyConfirm">确认</el-button>
+      <!-- <el-button color="#f5c153" size="large" class="confirm-button" @click="diyConfirm">确认</el-button> -->
+      <el-button color="#f5c153" size="large" class="confirm-button" @click="openBlindBoxModal">预览</el-button>
+
     </template>
   </el-dialog>
+  <BlindBoxModalcopy :isVisible="isBlindBoxModalVisible" @close="closeBlindBoxModal" />
 </template>
 
 <script setup>
 import { ref } from "vue";
-
+import BlindBoxModalcopy from '@/components/pops/BlindBoxModalcopy.vue';
 // 背景图
 import state from "@/api/global_variable.js";
+
+//放大盲盒窗口
+const isBlindBoxModalVisible=ref(false);
+
+const openBlindBoxModal=()=> {
+  goToDiyPop.value = false;
+  isBlindBoxModalVisible.value = true;}
+const closeBlindBoxModal=()=> {isBlindBoxModalVisible.value = false;}
+
+
 
 const goToDiyPop = ref(false);
 
 
+// const selectedGoldBeanSkin = ref(null);
 const selectedGoldBeanSkin = ref(null);
 
 
 const selectGoldBeanSkin = (index) => {
   selectedGoldBeanSkin.value = index;
+  state.selectedGoldBeanSkin2[0].image=state.goldBeanSkins.at(index).image;
+  state.selectedGoldBeanSkin2[0].name=state.goldBeanSkins.at(index).name;
+  console.log(index);
+  console.log(state.goldBeanSkins.at(index).name);
+  console.log(state.selectedGoldBeanSkin2[0].name);
 };
 
 const diyConfirm = () => {
