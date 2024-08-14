@@ -11,36 +11,22 @@
         <div @click="prevSlide" class="carousel-prev-icon-left"></div>
         <!-- 轮播图图片列表 -->
         <div class="carousel-slides">
-          <img
-            v-for="(blindbox, index) in blindboxes"
-            :key="index"
-            :src="blindbox.image"
-            :style="{left: index * 100 + '%', 'transform': dynamicstyle}"
-            :alt="blindbox.name"
-            class="blindbox-img"
-          />
+          <img v-for="(blindbox, index) in blindboxes" :key="index" :src="blindbox.image"
+            :style="{ left: index * 100 + '%', 'transform': dynamicstyle }" :alt="blindbox.name" class="blindbox-img" />
         </div>
         <!-- 右侧切换按钮 -->
         <div @click="nextSlide" class="carousel-prev-icon-right"></div>
       </div>
       <div class="carousel-text">
-        <div
-          v-for="(blindbox, index) in blindboxes"
-          :key="index"
-          :style="{left: index * 100 + '%', 'transform': dynamicTextStyle}"
-          class="blindbox-name"
-        >
+        <div v-for="(blindbox, index) in blindboxes" :key="index"
+          :style="{ left: index * 100 + '%', 'transform': dynamicTextStyle }" class="blindbox-name">
           {{ blindbox.name }}
         </div>
       </div>
       <!-- 赠送按钮 -->
       <button @click="handleGift" style="font-size: 18px;">赠送</button>
-      <ConfirmDialog 
-        :visible="showConfirmDialog" 
-        :blindBoxName="currentBlindBoxName"
-        @confirm="handleConfirm" 
-        @cancel="handleCancel" 
-      />
+      <ConfirmDialog :visible="showConfirmDialog" :blindBoxName="currentBlindBoxName" @confirm="handleConfirm"
+        @cancel="handleCancel" />
     </div>
   </div>
 </template>
@@ -70,14 +56,18 @@ export default {
   data() {
     return {
       // 盲盒图片列表
-      blindboxes: [
-        { name: '美乐蒂', image: image1 },
-        { name: '帕恰狗', image: image2 },
-        { name: 'HelloKitty', image: image3 },
-        { name: '草莓熊', image: image4 },
-        { name: '火腿猪', image: image5 },
-        { name: '玛丽猫', image: image6 }
-      ],
+      // blindboxes: [
+      //   { name: '美乐蒂', image: state.goldBeanSkins[0] },
+      //   { name: '帕恰狗', image: image2 },
+      //   { name: 'HelloKitty', image: image3 },
+      //   { name: '草莓熊', image: image4 },
+      //   { name: '火腿猪', image: image5 },
+      //   { name: '玛丽猫', image: image6 }
+      // ],
+      blindboxes: state.goldBeanSkins.map((skin, index) => ({
+        name: skin.name || `盲盒${index + 1}`,
+        image: skin.image
+      })),
       dynamicstyle: "", // 动态样式，用于控制图片的动画效果
       dynamicTextStyle: "",
       currentSlide: 0, // 当前显示的图片索引
@@ -135,7 +125,7 @@ export default {
       console.log('跳转到赠送结算页面');
       this.showConfirmDialog = false;
       this.$emit('close');
-      state.sendmoney=0;
+      state.sendmoney = 0;
       this.$router.push({ name: 'GiftSettlement' });
     },
     handleCancel() {
@@ -171,7 +161,8 @@ export default {
   max-width: 90%;
   max-height: 90%;
   overflow: hidden;
-  border: 5px solid gold; /* 添加金色边框 */
+  border: 5px solid gold;
+  /* 添加金色边框 */
 }
 
 /* 模态框头部样式 */
@@ -179,10 +170,12 @@ export default {
   width: 100%;
   display: flex;
   justify-content: center;
-  text-align: center; /* 文字居中 */
+  text-align: center;
+  /* 文字居中 */
   margin-bottom: 30px;
   font-size: 20px;
-  font-family: 'Microsoft YaHei', Georgia, 'Times New Roman', Times, serif; /* 使用微软雅黑字体 */
+  font-family: 'Microsoft YaHei', Georgia, 'Times New Roman', Times, serif;
+  /* 使用微软雅黑字体 */
 }
 
 /* 轮播图容器样式 */
@@ -221,7 +214,8 @@ export default {
   width: 40px;
   border: none;
   background-image: url('../../assets/arrow_right@2x.png');
-  transform: rotate(180deg); /* 旋转180度 */
+  transform: rotate(180deg);
+  /* 旋转180度 */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -263,14 +257,15 @@ button {
   text-align: center;
   margin-top: 10px;
   font-size: 16px;
-  color:  #333;
+  color: #333;
 }
 
 /* 文字轮播容器样式 */
 .carousel-text {
   position: relative;
   width: 320px;
-  height: 40px; /* 调整高度以适应文字 */
+  height: 40px;
+  /* 调整高度以适应文字 */
   overflow: hidden;
   margin-top: 10px;
 }
@@ -284,6 +279,4 @@ button {
   color: #333;
   transition: 0.5s transform ease-in-out;
 }
-
-
 </style>

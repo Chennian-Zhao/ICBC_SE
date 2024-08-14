@@ -1,15 +1,20 @@
 <template>
   <el-button type="text" class="personalize" plain @click="goToDiyPop = true"></el-button>
-  <el-dialog :show-close="false"
-             v-model="goToDiyPop"
-             width="98%"
-             class="diySkin-dialog-center"
-  >
-    <div>
+  <el-dialog :show-close="false" v-model="goToDiyPop" width="98%" class="diySkin-dialog-center">
+    <!-- <div>
       <el-row class="demo-gold" :gutter="20">
         <el-col v-for="(item, index) in state.goldBeanSkins" :key="index" :span="6">
           <div class="block" :class="{selected: selectedGoldBeanSkin === index}" @click="selectGoldBeanSkin(index)">
             <el-avatar shape="square" :size="50" :src="item"/>
+          </div>
+        </el-col>
+      </el-row>
+    </div> -->
+    <div>
+      <el-row class="demo-gold" :gutter="20">
+        <el-col v-for="(item, index) in state.goldBeanSkins" :key="index" :span="6">
+          <div class="block" :class="{ selected: selectedGoldBeanSkin === index }" @click="selectGoldBeanSkin(index)">
+            <el-avatar shape="square" :size="50" :src="item.image" />
           </div>
         </el-col>
       </el-row>
@@ -21,7 +26,7 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
+import { ref } from "vue";
 
 // 背景图
 import state from "@/api/global_variable.js";
@@ -48,7 +53,8 @@ const diyConfirm = () => {
   height: 60px;
   margin: 10px;
   flex: 1 1% 1%;
-  background-image: url('@/assets/我的盲盒@2x.png'); /* 背景图片路径 */
+  background-image: url('@/assets/我的盲盒@2x.png');
+  /* 背景图片路径 */
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -78,15 +84,18 @@ const diyConfirm = () => {
 
 <style>
 .diySkin-dialog-center {
-  width: 400px; /* 固定宽度 */
-  height: 450px; /* 固定高度 */
-  background-color: transparent; /* 弹窗背景颜色 */
+  width: 400px;
+  /* 固定宽度 */
+  height: 450px;
+  /* 固定高度 */
+  background-color: transparent;
+  /* 弹窗背景颜色 */
   /* background-image: url('@/assets/装扮弹窗@2x.png'); */
   background-image: url('@/assets/我的已有盲盒.png');
-  background-size: contain; /* 覆盖整个元素 */
+  background-size: contain;
+  /* 覆盖整个元素 */
   background-repeat: no-repeat;
   background-position: center;
   padding-top: 30px;
 }
-
 </style>

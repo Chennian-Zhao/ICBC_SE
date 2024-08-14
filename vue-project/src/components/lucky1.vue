@@ -51,9 +51,9 @@ export default {
       showContent: false, // 是否显示盲盒内容
       randomImage: { src: '/src/assets/images/三丽鸥/HelloKitty.png' }, // 默认随机图片
       images: [ // 可供随机选择的图片数组
-        { src: '/src/assets/images/三丽鸥/HelloKitty.png' },
-        { src: '/src/assets/images/三丽鸥/帕恰狗.png' },
-        { src: '/src/assets/images/三丽鸥/美乐蒂.png' },
+        { src: '/src/assets/images/三丽鸥/HelloKitty.png', name: 'Hello Kitty' },
+        { src: '/src/assets/images/三丽鸥/帕恰狗.png', name: '帕恰狗' },
+        { src: '/src/assets/images/三丽鸥/美乐蒂.png', name: '美乐蒂' },
       ],
     };
   },
@@ -74,8 +74,11 @@ export default {
     },
     goToLuckyPage() {
       // 添加金豆皮肤到换装扮界面
-      if (!state.goldBeanSkins.includes(this.randomImage.src)) {
-        state.goldBeanSkins.push(this.randomImage.src);
+      // if (!state.goldBeanSkins.includes(this.randomImage.src)) {
+      //   state.goldBeanSkins.push(this.randomImage.src);
+      // }
+      if (!state.goldBeanSkins.some(skin => skin.image === this.randomImage.src)) {
+        state.goldBeanSkins.push({ image: this.randomImage.src, name: this.randomImage.name });
       }
       this.$router.push('/');
     }
@@ -264,7 +267,7 @@ export default {
   background-color: transparent;
   margin-top: 60px;
   margin-bottom: 0px;
-  
+
 }
 
 /* 无边框按钮样式 */

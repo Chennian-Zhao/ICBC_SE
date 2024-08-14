@@ -51,13 +51,13 @@ export default {
       showContent: false, // 是否显示盲盒内容
       randomImage: { src: '/src/assets/images/Disney/米奇.png' }, // 默认随机图片
       images: [ // 可供随机选择的图片数组
-        { src: '/src/assets/images/Disney/米奇.png' },
-        { src: '/src/assets/images/Disney/草莓熊.png' },
-        { src: '/src/assets/images/Disney/三眼仔.png' },
-        { src: '/src/assets/images/Disney/玛丽猫.png' },
-        { src: '/src/assets/images/Disney/火腿猪.png' },
-        { src: '/src/assets/images/Disney/维尼.png' },
-        { src: '/src/assets/images/Disney/雪宝.png' },
+        { src: '/src/assets/images/Disney/米奇.png', name: '米奇' },
+        { src: '/src/assets/images/Disney/草莓熊.png', name: '草莓熊' },
+        { src: '/src/assets/images/Disney/三眼仔.png', name: '三眼仔' },
+        { src: '/src/assets/images/Disney/玛丽猫.png', name: '玛丽猫' },
+        { src: '/src/assets/images/Disney/火腿猪.png', name: '火腿猪' },
+        { src: '/src/assets/images/Disney/维尼.png', name: '维尼' },
+        { src: '/src/assets/images/Disney/雪宝.png', name: '雪宝' },
       ],
     };
   },
@@ -78,8 +78,11 @@ export default {
     },
     goToLuckyPage() {
       // 添加金豆皮肤到换装扮界面
-      if (!state.goldBeanSkins.includes(this.randomImage.src)) {
-        state.goldBeanSkins.push(this.randomImage.src);
+      // if (!state.goldBeanSkins.includes(this.randomImage.src)) {
+      //   state.goldBeanSkins.push(this.randomImage.src);
+      // }
+      if (!state.goldBeanSkins.some(skin => skin.image === this.randomImage.src)) {
+        state.goldBeanSkins.push({ image: this.randomImage.src, name: this.randomImage.name });
       }
       this.$router.push('/');
     }

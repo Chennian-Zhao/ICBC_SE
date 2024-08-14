@@ -10,9 +10,14 @@ const state = reactive({
     currentPrice: 0,
     quickGram: 0,
     backGroundUrl: '',
-    goldBeanSkins: [bean1, bean2, bean3, bean4],
+    goldBeanSkins: [
+        { image: bean1, name: '金豌豆' },
+        { image: bean2, name: '金圆豆' },
+        { image: bean3, name: '金心豆' },
+        { image: bean4, name: '金花豆' }
+    ],
     flag: true,
-    sendmoney:0,
+    sendmoney: 0,
 });
 
 // 监听 currentPrice 的变化
