@@ -17,6 +17,8 @@ const state = reactive({
         { image: bean4, name: '金花豆' }
     ],
     selectedGoldBeanSkin2:[ { image: bean1, name: '金豌豆' }],
+    index:0,
+    indexflag:false,
     flag: true,
     sendmoney: 0,
 });

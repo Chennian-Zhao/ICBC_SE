@@ -39,7 +39,9 @@ const isBlindBoxModalVisible=ref(false);
 
 const openBlindBoxModal=()=> {
   goToDiyPop.value = false;
-  isBlindBoxModalVisible.value = true;}
+  isBlindBoxModalVisible.value = true;
+  state.indexflag=true;
+}
 const closeBlindBoxModal=()=> {isBlindBoxModalVisible.value = false;}
 
 
@@ -52,6 +54,7 @@ const selectedGoldBeanSkin = ref(null);
 
 
 const selectGoldBeanSkin = (index) => {
+  state.index=index;
   selectedGoldBeanSkin.value = index;
   state.selectedGoldBeanSkin2[0].image=state.goldBeanSkins.at(index).image;
   state.selectedGoldBeanSkin2[0].name=state.goldBeanSkins.at(index).name;

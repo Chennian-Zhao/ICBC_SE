@@ -1,86 +1,68 @@
 <template>
   <!-- 模态框的遮罩层，点击遮罩层关闭模态框 -->
-  <div class="modal-overlay" v-if="isVisible" @click.self="closeModal">
+  <div class="modal-overlay" v-if="state.indexflag" @click.self="closeModal">
     <div class="modal-content">
       <div>
-        <p class="modal-header">已有盲盒</p>
+        <!-- <p class="modal-header">已有盲盒</p> -->
       </div>
       <!-- 轮播图容器 -->
       <div class="carousel">
 
-        <div class="carousel-slides">
-          <img  v-for="(blindbox, index) in blindboxes" :key="index" :src="blindbox.image"
-            :style="{ left: index * 100 + '%', 'transform': dynamicstyle }" :alt="blindbox.name" class="blindbox-img" />
+        <div class="carousel-slides"> 
+          <!-- <div v-for="(item,index) in state.goldBeanSkins" :key="index">
+            <img v-if="index === state.index" :src="item.image" class="blindbox-img"/>
+            </div> -->
+         <!-- <img   v-for="(blindbox, index) in blindboxes" :key="index" :src="blindbox.image"
+             :style="{ left: index * 100 + '%', 'transform': dynamicstyle }" :alt="blindbox.name" class="blindbox-img" /> -->
+             
+             <div v-for="(item,index) in state.goldBeanSkins" :key="index">
+              <img v-if="index === state.index" :src="item.image"  class="blindbox-img"/>
+            </div>
+           
         </div>
 
       </div>
       <div class="carousel-text">
-        <div v-for="(blindbox, index) in blindboxes" :key="index"
-          :style="{ left: index * 100 + '%', 'transform': dynamicTextStyle }" class="blindbox-name">
-          {{ blindbox.name }}
-        </div>
+        <!-- <div v-for="(item, index) in state.goldBeanSkins" :key="index"class="blindbox-name">
+          <div v-if="index === state.index">{{ item.name }}</div>
+        </div> -->
+         <div  v-for="(item, index) in state.goldBeanSkins" :key="index" class="blindbox-name">
+          <div v-if="index === state.index">{{ item.name }}</div>
+           <!-- {{form.blindboxesname1}} -->
+         </div>
       </div>
       <!-- 赠送按钮 -->
       <button @click="closeModal" style="font-size: 18px;">返回</button>
-      <ConfirmDialog :visible="showConfirmDialog" :blindBoxName="currentBlindBoxName" @confirm="handleConfirm"
-        @cancel="handleCancel" />
     </div>
   </div>
 </template>
 
-<script>
-import ConfirmDialog from '@/components/pops/ConfirmDialog.vue';
+<script setup>
+import {computed, reactive, ref, watch} from 'vue'
+import {ElMessageBox} from 'element-plus'
+import {Check, Close} from '@element-plus/icons-vue'
+import gsap from 'gsap'
+import {useRouter} from 'vue-router';
 import state from "@/api/global_variable.js";
 
-export default {
-  name: 'BlindBoxModalcopy',
-  components: {
-    ConfirmDialog
-  },
-  props: {
-    // 控制模态框是否可见
-    isVisible: {
-      type: Boolean,
-      required: true
-    }
-  },
-  data() {
-    return {
-      // blindboxes: state.goldBeanSkins.map((skin, index) => ({
-      //   name: skin.name || `盲盒${index + 1}`,
-      //   image: skin.image
-      // }))
-      blindboxes:
-        [{name: state.selectedGoldBeanSkin2[0].name,
-        image: state.selectedGoldBeanSkin2[0].image}
-        ],
-      dynamicstyle: "", // 动态样式，用于控制图片的动画效果
-      dynamicTextStyle: "",
-      currentSlide: 0, // 当前显示的图片索引
-      interval: null, // 定时器对象
-      showConfirmDialog: false, // 控制确认弹窗的显示
-      currentBlindBoxName: '' // 当前盲盒名称
-    };
-  },
 
-  methods: {
+// const   blindboxesimage=ref(state.goldBeanSkins[state.index].image);
+// const blindboxesname= ref(state.goldBeanSkins[state.index].name);
+// const form = reactive({
+//   blindboxesimage1: blindboxesimage,
+//   blindboxesname1: blindboxesname,
+// })
 
-    // 设置图片的动画效果
-    setStyle() {
-      this.dynamicstyle = `translateX(-${this.currentSlide * 100}%)`;
-      this.dynamicTextStyle = `translateX(-${this.currentSlide * 100}%)`;
-    },
-    // 关闭模态框
-    closeModal() {
-      this.$emit('close');
-    },
-    // 更新当前盲盒名称
-    updateCurrentBlindBoxName() {
-      this.currentBlindBoxName = this.blindboxes[this.currentSlide].name;
-    }
-  }
-};
+
+
+const closeModal=()=> {
+      state.indexflag=false;
+}
+
+
+
 </script>
+
 <style scoped>
 /* 模态框遮罩层样式 */
 .modal-overlay {
@@ -142,44 +124,11 @@ export default {
   object-fit: cover;
   padding: 0;
   top: 0;
-  left: 0;
+  left: 75px;
   height: 100%;
   transition: 0.5s transform ease-in-out;
 }
 
-/* 左侧切换按钮样式 */
-.carousel-prev-icon-left {
-  position: absolute;
-  left: 10px;
-  top: 55px;
-  height: 50px;
-  width: 40px;
-  border: none;
-  background-image: url('../../assets/arrow_right@2x.png');
-  transform: rotate(180deg);
-  /* 旋转180度 */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 999;
-}
-
-/* 右
-
-/* 右侧切换按钮样式 */
-.carousel-prev-icon-right {
-  position: absolute;
-  right: 10px;
-  top: 55px;
-  height: 50px;
-  width: 40px;
-  border: none;
-  background-image: url('../../assets/arrow_right@2x.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 999;
-}
 
 /* 赠送按钮样式 */
 button {
