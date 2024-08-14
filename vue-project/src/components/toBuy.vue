@@ -127,7 +127,7 @@
         </div>
 
 
-        <el-form-item label="盲合活动">
+        <el-form-item label="盲盒活动">
           <!-- <el-checkbox v-model="form.participateInBlindBox"></el-checkbox> -->
           <el-button plain @click="showInfo" style="width: 50%">了解盲盒活动</el-button>
           <!-- <el-switch
