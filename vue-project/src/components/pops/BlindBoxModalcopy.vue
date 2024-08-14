@@ -3,18 +3,13 @@
   <div class="modal-overlay" v-if="state.indexflag" @click.self="closeModal">
     <div class="modal-content">
       <div>
-        <!-- <p class="modal-header">已有盲盒</p> -->
+        <p class="modal-header">预览盲盒</p>
       </div>
       <!-- 轮播图容器 -->
       <div class="carousel">
 
         <div class="carousel-slides"> 
-          <!-- <div v-for="(item,index) in state.goldBeanSkins" :key="index">
-            <img v-if="index === state.index" :src="item.image" class="blindbox-img"/>
-            </div> -->
-         <!-- <img   v-for="(blindbox, index) in blindboxes" :key="index" :src="blindbox.image"
-             :style="{ left: index * 100 + '%', 'transform': dynamicstyle }" :alt="blindbox.name" class="blindbox-img" /> -->
-             
+
              <div v-for="(item,index) in state.goldBeanSkins" :key="index">
               <img v-if="index === state.index" :src="item.image"  class="blindbox-img"/>
             </div>
@@ -23,12 +18,9 @@
 
       </div>
       <div class="carousel-text">
-        <!-- <div v-for="(item, index) in state.goldBeanSkins" :key="index"class="blindbox-name">
-          <div v-if="index === state.index">{{ item.name }}</div>
-        </div> -->
+  
          <div  v-for="(item, index) in state.goldBeanSkins" :key="index" class="blindbox-name">
           <div v-if="index === state.index">{{ item.name }}</div>
-           <!-- {{form.blindboxesname1}} -->
          </div>
       </div>
       <!-- 赠送按钮 -->
@@ -38,28 +30,13 @@
 </template>
 
 <script setup>
-import {computed, reactive, ref, watch} from 'vue'
-import {ElMessageBox} from 'element-plus'
-import {Check, Close} from '@element-plus/icons-vue'
-import gsap from 'gsap'
-import {useRouter} from 'vue-router';
+
 import state from "@/api/global_variable.js";
-
-
-// const   blindboxesimage=ref(state.goldBeanSkins[state.index].image);
-// const blindboxesname= ref(state.goldBeanSkins[state.index].name);
-// const form = reactive({
-//   blindboxesimage1: blindboxesimage,
-//   blindboxesname1: blindboxesname,
-// })
-
-
 
 const closeModal=()=> {
       state.indexflag=false;
+      state.DiySkinPop=true;
 }
-
-
 
 </script>
 

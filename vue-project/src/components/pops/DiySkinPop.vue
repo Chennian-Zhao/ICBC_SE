@@ -1,6 +1,9 @@
 <template>
-  <el-button type="text" class="personalize" plain @click="goToDiyPop = true"></el-button>
-  <el-dialog :show-close="false" v-model="goToDiyPop" width="98%" class="diySkin-dialog-center">
+  <!-- <el-button type="text" class="personalize" plain @click="goToDiyPop = true"></el-button> -->
+  <el-button type="text" class="personalize" plain @click="state.DiySkinPop = true"></el-button>
+
+  <!-- <el-dialog :show-close="false" v-model="goToDiyPop" width="98%" class="diySkin-dialog-center"> -->
+    <el-dialog :show-close="false" v-model="state.DiySkinPop" width="98%" class="diySkin-dialog-center">
     <!-- <div>
       <el-row class="demo-gold" :gutter="20">
         <el-col v-for="(item, index) in state.goldBeanSkins" :key="index" :span="6">
@@ -38,7 +41,8 @@ import state from "@/api/global_variable.js";
 const isBlindBoxModalVisible=ref(false);
 
 const openBlindBoxModal=()=> {
-  goToDiyPop.value = false;
+  state.DiySkinPop=false;
+  // goToDiyPop.value = false;
   isBlindBoxModalVisible.value = true;
   state.indexflag=true;
 }
