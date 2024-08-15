@@ -24,7 +24,7 @@
     </div>
     <template #footer>
       <!-- <el-button color="#f5c153" size="large" class="confirm-button" @click="diyConfirm">确认</el-button> -->
-      <el-button color="#f5c153" size="large" class="confirm-button" @click="openBlindBoxModal">预览</el-button>
+      <el-button color="#f5c153" size="large" class="confirm-button" @click="openBlindBoxModal">浏览</el-button>
 
     </template>
   </el-dialog>
