@@ -22,7 +22,10 @@
         <div class="center-container">
             <div class="help-button-container">
                 <van-icon class="help-button" size="20px" @click="onHelpClick" name="replay" />
-
+                <br>
+                切换
+                <br>
+                主题
             </div>
             <div class="text-container">
                 <van-divider class="fancy-text">
