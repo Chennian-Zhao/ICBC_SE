@@ -23,6 +23,7 @@
             <div class="help-button-container">
                 <van-icon class="help-button" size="20px" @click="onHelpClick" name="replay" />
                 <br>
+                <br>
                 切换
                 <br>
                 主题
