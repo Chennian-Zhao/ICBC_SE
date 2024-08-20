@@ -10,11 +10,11 @@
         <div class="block-content">
           <el-form :model="form" ref="form" label-width="120px">
             <el-form-item label="户名" prop="name" class="form-item">
-              <el-input v-model="form.name" placeholder="请输入（支持首字母检索）" class="form-item-input"></el-input>
+              <el-input v-model.trim="name" placeholder="请输入（支持首字母检索）" class="form-item-input"></el-input>
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="手机号" prop="phone" class="form-item">
-              <el-input type="tel" v-model="form.phone" placeholder="请输入受赠方手机号" class="form-item-input"></el-input>
+              <el-input type="tel" v-model="phone" placeholder="请输入受赠方手机号" class="form-item-input"></el-input>
             </el-form-item>         
           </el-form>
         </div>
@@ -89,7 +89,7 @@
         <div class="block-content">
           <el-form :model="form" ref="form" label-width="120px">
             <el-form-item label="付款方式" prop="paymentMethod" class="form-item">
-              <el-select v-model="form.paymentMethod" placeholder="使用工行卡" class="form-item-input">
+              <el-select v-model="paymentMethod" placeholder="使用工行卡" class="form-item-input">
                 <el-option label="微信" value="wechat"></el-option>
                 <el-option label="支付宝" value="alipay"></el-option>
                 <el-option label="数字人民币" value="digitalRMB"></el-option>
@@ -104,7 +104,7 @@
             
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="留言" prop="message" class="form-item">
-              <el-input type="text" v-model="form.message" placeholder="请输入" class="form-item-input"></el-input>
+              <el-input type="text" v-model="message" placeholder="请输入" class="form-item-input"></el-input>
             </el-form-item>
             <div class="divider"></div> <!-- 分隔线 -->
             <el-form-item label="短信通知" prop="smsNotification" class="form-item">
@@ -140,6 +140,12 @@ import {computed, reactive, ref, watch} from 'vue'
 import gsap from 'gsap'
 import { useRouter } from 'vue-router';
 import state from "@/api/global_variable.js";
+
+const name=ref("");
+const phone=ref("")
+const paymentMethod=ref("")
+const message=ref("")
+
 
 // 定义表单数据和对话框显示状态
 const form = reactive({
